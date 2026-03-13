@@ -457,6 +457,7 @@ class NoteProcessor: MetadataCoding {
         p.httpUrls = shortenedUrls.flatMap { nsText.positions(of: $0.0, reference: $0.1) }
         p.highlights = highlights.flatMap { nsText.positions(of: $0.replacement, reference: $0.highlight.post.id)}
         p.highlightEvents = highlights.map { $0.highlight }
+        p.l402Gate = L402ContentManager.parseGate(from: post.tags)
         p.text = text
         p.buildContentString(style: contentStyle)
         

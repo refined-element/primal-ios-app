@@ -142,6 +142,10 @@
 		9E8834C22A33BE24005DB548 /* ToastMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8834C12A33BE24005DB548 /* ToastMessageView.swift */; };
 		9E8834C42A33C25F005DB548 /* RoundedSmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8834C32A33C25F005DB548 /* RoundedSmallButton.swift */; };
 		9E8834C62A377A93005DB548 /* SocketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8834C52A377A93005DB548 /* SocketRequest.swift */; };
+		AA0000000000000000000001 /* L402Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000002 /* L402Client.swift */; };
+		AA0000000000000000000003 /* L402ContentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000004 /* L402ContentManager.swift */; };
+		AA0000000000000000000005 /* L402PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000006 /* L402PaywallView.swift */; };
+		AA0000000000000000000007 /* FeedElementL402PaywallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000008 /* FeedElementL402PaywallCell.swift */; };
 		9E8834C82A378DA5005DB548 /* Publisher+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8834C72A378DA5005DB548 /* Publisher+Extra.swift */; };
 		9E8834CA2A379672005DB548 /* NSRange+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8834C92A379672005DB548 /* NSRange+Extra.swift */; };
 		9E8834CC2A37A5EB005DB548 /* UserInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8834CB2A37A5EB005DB548 /* UserInfoTableCell.swift */; };
@@ -952,6 +956,10 @@
 		9E8834C12A33BE24005DB548 /* ToastMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessageView.swift; sourceTree = "<group>"; };
 		9E8834C32A33C25F005DB548 /* RoundedSmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSmallButton.swift; sourceTree = "<group>"; };
 		9E8834C52A377A93005DB548 /* SocketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketRequest.swift; sourceTree = "<group>"; };
+		AA0000000000000000000002 /* L402Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L402Client.swift; sourceTree = "<group>"; };
+		AA0000000000000000000004 /* L402ContentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L402ContentManager.swift; sourceTree = "<group>"; };
+		AA0000000000000000000006 /* L402PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L402PaywallView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000008 /* FeedElementL402PaywallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedElementL402PaywallCell.swift; sourceTree = "<group>"; };
 		9E8834C72A378DA5005DB548 /* Publisher+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extra.swift"; sourceTree = "<group>"; };
 		9E8834C92A379672005DB548 /* NSRange+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRange+Extra.swift"; sourceTree = "<group>"; };
 		9E8834CB2A37A5EB005DB548 /* UserInfoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableCell.swift; sourceTree = "<group>"; };
@@ -1963,6 +1971,7 @@
 				B94A0E2E2ABA228700DEBFE1 /* TextViewManagers */,
 				B917982B2EE0690D00EF29EF /* RemoteSigning */,
 				B9370EE52DE5EDFC004A9760 /* WalletManager */,
+				AA0000000000000000000004 /* L402ContentManager.swift */,
 				93F27DA32A27EA04004ADA55 /* FollowManager.swift */,
 				93F27DA52A27EA6D004ADA55 /* IdentityManager.swift */,
 				93F27DA92A27FB41004ADA55 /* PostingManager.swift */,
@@ -2142,6 +2151,7 @@
 				B90032832BD0180300ADD2E5 /* SocketRequests */,
 				B9009B5F2B11082D002B0613 /* Requests */,
 				9E83DF782A57FDEC00F2C379 /* UploadAssetRequest.swift */,
+				AA0000000000000000000002 /* L402Client.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -2168,6 +2178,7 @@
 				B91E570A2CC8258500C14809 /* GenericLoadingView.swift */,
 				B91E57172CD93C7100C14809 /* ZapPreviewView.swift */,
 				B91EF0E32CECDE1600299ECF /* UserImageView.swift */,
+				AA0000000000000000000006 /* L402PaywallView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -3464,6 +3475,7 @@
 				B9E67E8C2D0767AE006BB397 /* FeedElementInvoiceCell.swift */,
 				B9E67E8A2D0766F1006BB397 /* FeedElementReactionsCell.swift */,
 				B9E67E902D07682B006BB397 /* FeedElementArticleCell.swift */,
+				AA0000000000000000000008 /* FeedElementL402PaywallCell.swift */,
 			);
 			path = FeedElementCells;
 			sourceTree = "<group>";
@@ -4419,6 +4431,10 @@
 				93B7FE842A0ABEE6005AE313 /* Bootstrap.swift in Sources */,
 				B90EF0EF2AFC41CB00A7CD65 /* ProfileFollowCell.swift in Sources */,
 				9E8834C62A377A93005DB548 /* SocketRequest.swift in Sources */,
+				AA0000000000000000000001 /* L402Client.swift in Sources */,
+				AA0000000000000000000003 /* L402ContentManager.swift in Sources */,
+				AA0000000000000000000005 /* L402PaywallView.swift in Sources */,
+				AA0000000000000000000007 /* FeedElementL402PaywallCell.swift in Sources */,
 				B914CD712AA2647100CD0BD1 /* UnmuteUserButton.swift in Sources */,
 				B901C38F2BAB2C5E00C3AA69 /* OnboardingInterestsController.swift in Sources */,
 				B914CD792AA62F4D00CD0BD1 /* YoutubeVideoCell.swift in Sources */,

@@ -90,7 +90,8 @@ final class ParsedContent: Hashable {
     var article: Article?
     
     var invoice: Invoice?
-    
+    var l402Gate: L402Gate?
+
     var text: String = ""
     var attributedText: NSAttributedString = NSAttributedString(string: "")
     var attributedTextShort: NSAttributedString = NSAttributedString(string: "")
@@ -393,7 +394,8 @@ extension ParsedContent {
         new.linkPreviews = linkPreviews
         
         new.invoice = invoice
-        
+        new.l402Gate = l402Gate
+
         new.text = text
         new.attributedText = attributedText
         new.attributedTextShort = attributedTextShort

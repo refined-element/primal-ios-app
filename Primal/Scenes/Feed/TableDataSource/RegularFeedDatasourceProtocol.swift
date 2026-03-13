@@ -24,6 +24,7 @@ enum NoteFeedElement: Hashable {
     case info
     case live
     case invoice
+    case l402Paywall
     case reactions
 }
 
@@ -67,6 +68,8 @@ extension NoteFeedElement {
             return FeedElementInfoCell.cellID
         case .invoice:
             return FeedElementInvoiceCell.cellID
+        case .l402Paywall:
+            return FeedElementL402PaywallCell.cellID
         case .reactions:
             return FeedElementReactionsCell.cellID
         }
@@ -87,6 +90,7 @@ extension RegularFeedDatasourceProtocol {
         tableView.register(FeedElementPostPreviewCell.self, forCellReuseIdentifier: FeedElementPostPreviewCell.cellID)
         tableView.register(FeedElementZapPreviewCell.self, forCellReuseIdentifier: FeedElementZapPreviewCell.cellID)
         tableView.register(FeedElementInvoiceCell.self, forCellReuseIdentifier: FeedElementInvoiceCell.cellID)
+        tableView.register(FeedElementL402PaywallCell.self, forCellReuseIdentifier: FeedElementL402PaywallCell.cellID)
         tableView.register(FeedElementReactionsCell.self, forCellReuseIdentifier: FeedElementReactionsCell.cellID)
         tableView.register(FeedElementArticleCell.self, forCellReuseIdentifier: FeedElementArticleCell.cellID)
         tableView.register(FeedElementLivePreviewCell.self, forCellReuseIdentifier: FeedElementLivePreviewCell.cellID)
@@ -109,6 +113,7 @@ extension RegularFeedDatasourceProtocol {
             if !content.text.isEmpty { parts.append(.text) }
             if !content.mediaResources.isEmpty { parts.append(.imageGallery) }
             if let invoice = content.invoice { parts.append(.invoice) }
+            if content.l402Gate != nil { parts.append(.l402Paywall) }
             if let article = content.article { parts.append(.article) }
             
             if short, let embedded = content.embeddedPosts.first {

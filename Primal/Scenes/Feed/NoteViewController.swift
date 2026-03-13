@@ -428,6 +428,23 @@ class NoteViewController: UIViewController, UITableViewDelegate, Themeable, Wall
             guard let invoice = post.invoice else { return }
             search(invoice.string)
             textSearch = nil
+        case .unlockL402:
+            guard let gate = post.l402Gate else { return }
+            guard WalletManager.instance.userHasWallet == true else {
+                showErrorMessage(title: "Wallet Required", "Set up your wallet to unlock premium content.")
+                return
+            }
+            L402ContentManager.instance.unlock(post: post, gate: gate) { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        self?.table.reloadData()
+                    case .failure(let error):
+                        self?.showErrorMessage(title: "Unlock Failed", error.localizedDescription)
+                    }
+                }
+            }
+            table.reloadData()
         case .zapDetails:
             show(NoteReactionsParentController(.zaps, noteId: post.post.universalID), sender: nil)
         case .likeDetails:
