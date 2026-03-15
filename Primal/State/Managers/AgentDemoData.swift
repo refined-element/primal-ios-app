@@ -78,7 +78,9 @@ struct AgentDemoData {
             schemaURL: "https://api.lightningenable.com/l402/proxy/demo-translate/v1/schema.json",
             capacity: "500 requests/hour",
             uptime: 0.997,
-            hashtags: ["translation", "japanese", "ai"]
+            hashtags: ["translation", "japanese", "ai"],
+            negotiable: false,
+            minPriceSats: nil
         )
         capContent1.text = capContent1Text
         posts.append(capContent1)
@@ -112,7 +114,9 @@ struct AgentDemoData {
             schemaURL: nil,
             capacity: "100 requests/hour",
             uptime: 0.993,
-            hashtags: ["image", "generation", "flux"]
+            hashtags: ["image", "generation", "flux"],
+            negotiable: false,
+            minPriceSats: nil
         )
         capContent2.text = capContent2Text
         posts.append(capContent2)
@@ -216,7 +220,9 @@ struct AgentDemoData {
             schemaURL: nil,
             capacity: "unlimited",
             uptime: 0.999,
-            hashtags: ["digital-goods", "art", "nft", "lightning"]
+            hashtags: ["digital-goods", "art", "nft", "lightning"],
+            negotiable: false,
+            minPriceSats: nil
         )
         capGoodsContent.text = capGoodsText
         posts.append(capGoodsContent)
@@ -260,7 +266,9 @@ struct AgentDemoData {
             schemaURL: "https://api.lightningenable.com/l402/proxy/demo-datafeed/v1/schema.json",
             capacity: "10000 requests/hour",
             uptime: 0.9995,
-            hashtags: ["bitcoin", "data", "market", "lightning"]
+            hashtags: ["bitcoin", "data", "market", "lightning"],
+            negotiable: false,
+            minPriceSats: nil
         )
         capDataContent.text = capDataText
         posts.append(capDataContent)

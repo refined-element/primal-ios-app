@@ -45,6 +45,8 @@ struct AgentCapability {
     let capacity: String?
     let uptime: Double?
     let hashtags: [String]
+    let negotiable: Bool
+    let minPriceSats: Int?
 
     static func parse(from tags: [[String]], content: String, id: String, pubkey: String, createdAt: Int64) -> AgentCapability? {
         guard let serviceId = tags.tagValue("d") else { return nil }
@@ -72,6 +74,25 @@ struct AgentCapability {
 
         let hashtags = tags.tagValues("t")
 
+        let negotiableTag = tags.firstTag("negotiable")
+        let negotiable: Bool
+        let minPriceSats: Int?
+        if let negValue = negotiableTag?[safe: 1] {
+            if negValue == "false" {
+                negotiable = false
+                minPriceSats = nil
+            } else if negValue == "floor", let floorStr = negotiableTag?[safe: 2], let floor = Int(floorStr) {
+                negotiable = true
+                minPriceSats = floor
+            } else {
+                negotiable = true
+                minPriceSats = nil
+            }
+        } else {
+            negotiable = true
+            minPriceSats = nil
+        }
+
         return AgentCapability(
             id: id,
             pubkey: pubkey,
@@ -86,7 +107,9 @@ struct AgentCapability {
             schemaURL: schemaURL,
             capacity: capacity,
             uptime: uptime,
-            hashtags: hashtags
+            hashtags: hashtags,
+            negotiable: negotiable,
+            minPriceSats: minPriceSats
         )
     }
 }
