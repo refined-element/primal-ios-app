@@ -154,7 +154,7 @@ private extension SettingsNsecViewController {
         
         pubLabelDesc.text = "Anyone on Nostr can find you via your public key. Feel free to share anywhere."
         secLabelDesc.text = "This key fully controls your Nostr account. Don’t share it with anyone. Only copy this key to store it securely or to login to another Nostr app."
-        dangerDesc.text = "This will permanently delete your Nostr account. You won’t be able to login via Primal or other Nostr apps."
+        dangerDesc.text = "This will permanently delete your Nostr account. You won’t be able to login via NostrWolfe or other Nostr apps."
         
         copyPubButton.addTarget(self, action: #selector(copyPubPressed), for: .touchUpInside)
         copySecButton.addTarget(self, action: #selector(copySecPressed), for: .touchUpInside)
@@ -168,7 +168,7 @@ private extension SettingsNsecViewController {
         deleteButton.addAction(.init(handler: { [weak self] _ in
             let alert = UIAlertController(
                 title: "Are you sure you want to delete your account?",
-                message: "HEY THIS IS SERIOUS!!\n\nIf you delete your account you will not be able to sign in using that account via Primal or any other Nostr client. Are you sure you want to do this?",
+                message: "HEY THIS IS SERIOUS!!\n\nIf you delete your account you will not be able to sign in using that account via NostrWolfe or any other Nostr client. Are you sure you want to do this?",
                 preferredStyle: .alert
             )
             alert.addAction(.init(title: "Delete", style: .destructive, handler: { _ in

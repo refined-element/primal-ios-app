@@ -119,7 +119,7 @@ extension RemoteSignerWidgetAttributes {
 
 extension RemoteSignerWidgetAttributes.ContentState {
     fileprivate static var primalForest: RemoteSignerWidgetAttributes.ContentState {
-        RemoteSignerWidgetAttributes.ContentState(connectedApps: ["Primal WebApp"], currentlyPlaying: "Forest", isMuted: true)
+        RemoteSignerWidgetAttributes.ContentState(connectedApps: ["NostrWolfe WebApp"], currentlyPlaying: "Forest", isMuted: true)
      }
 }
 

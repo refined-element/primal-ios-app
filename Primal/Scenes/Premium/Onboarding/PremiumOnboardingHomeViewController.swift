@@ -59,25 +59,24 @@ final class PremiumOnboardingHomeViewController: UIViewController, Themeable {
 
 private extension PremiumOnboardingHomeViewController {
     var premiumInfoItems: [String] { [
-        "Verified Nostr Address",
-        "Custom Lightning Address",
-        "VIP profile on primal.net",
-        "Advanced Nostr search",
-        "Premium paid relay",
-        "10GB media storage",
-        "1GB max file size"
+        "Publish agent capabilities",
+        "Create L402 challenges",
+        "Access the agent API",
+        "Verified Nostr address",
+        "Custom Lightning address",
+        "Agent analytics dashboard"
     ] }
-    
+
     var proInfoItems: [String] { [
-        "Everything in Premium, and",
-        "Primal Studio",
-        "Legend Status on Primal",
-        "100GB media storage",
-        "10GB max file size"
+        "Everything in Individual, and",
+        "Multi-agent fleet management",
+        "Advanced analytics",
+        "Priority support",
+        "Custom integrations"
     ] }
     
     func setup() {
-        let introLabel = ThemeableLabel("Upgrade your Primal experience today.", textColor: { .foreground3 }, font: .appFont(withSize: 18, weight: .regular))
+        let introLabel = ThemeableLabel("Unlock the full power of agent services on Nostr.", textColor: { .foreground3 }, font: .appFont(withSize: 18, weight: .regular))
         
         let termsAndConditions = TermsAndConditionsView()
         
@@ -105,11 +104,11 @@ private extension PremiumOnboardingHomeViewController {
         mainStack.distribution = .equalSpacing
         
         let cardWidth: CGFloat = 275
-        let premiumInfoView = LearnAboutPremiumView(title: "Premium", tint: .accent, items: premiumInfoItems).constrainToSize(width: cardWidth)
-        let proInfoView = LearnAboutPremiumView(title: "Pro", tint: .pro, items: proInfoItems, hideFirstCheckbox: true)
+        let premiumInfoView = LearnAboutPremiumView(title: "Individual", tint: .accent, items: premiumInfoItems).constrainToSize(width: cardWidth)
+        let proInfoView = LearnAboutPremiumView(title: "Business", tint: .pro, items: proInfoItems, hideFirstCheckbox: true)
         if let premium = WalletManager.instance.premiumState, !premium.isExpired {
-            topStack.addArrangedSubview(UILabel("Primal Pro", color: .foreground, font: .appFont(withSize: 36, weight: .bold)))
-            introLabel.text = "Upgrade to the highest level of visibility, features and recognition across the network, and get access to professional tools."
+            topStack.addArrangedSubview(UILabel("Business Plan", color: .foreground, font: .appFont(withSize: 36, weight: .bold)))
+            introLabel.text = "For businesses running agent fleets. Everything in Individual plus multi-agent management, analytics, and priority support."
             introLabel.textAlignment = .center
             introLabel.numberOfLines = 0
             introLabel.font = .appFont(withSize: 15, weight: .regular)
@@ -147,21 +146,21 @@ private extension PremiumOnboardingHomeViewController {
             
             if RootViewController.instance.view.frame.height > 700 {
                 [
-                    UILabel("Primal", color: .foreground, font: .appFont(withSize: 36, weight: .bold)),
-                    UILabel("Premium & Pro", color: .foreground, font: .appFont(withSize: 36, weight: .bold)),
+                    UILabel("Agentic", color: .foreground, font: .appFont(withSize: 36, weight: .bold)),
+                    UILabel("Commerce", color: .foreground, font: .appFont(withSize: 36, weight: .bold)),
                     SpacerView(height: 22)
                 ]
                     .forEach { topStack.addArrangedSubview($0) }
                 topStack.spacing = -8
             } else {
-                parent?.title = "Premium & Pro"
+                parent?.title = "Agentic Commerce"
             }
         }
         topStack.addArrangedSubview(introLabel)
         
         $isViewingPro.removeDuplicates().sink { isPro in
             UIView.transition(with: botStack, duration: 0.2, options: .transitionCrossDissolve) {
-                learnAboutButton.configuration = isPro ? .coloredButton("Learn about Primal Pro", color: .pro) : .coloredButton("Learn about Primal Premium", color: .accent)
+                learnAboutButton.configuration = isPro ? .coloredButton("Learn about Business Plan", color: .pro) : .coloredButton("Learn about Individual Plan", color: .accent)
                 pageIndicator.primaryColor = isPro ? .pro : .accent
                 pageIndicator.currentPage = isPro ? 1 : 0
             }
@@ -181,20 +180,20 @@ private extension PremiumOnboardingHomeViewController {
                 return
             }
             
-            nav.pushViewController(PremiumSearchNameController(title: "Find Primal Name", callback: { name in
+            nav.pushViewController(PremiumSearchNameController(title: "Get Started", callback: { name in
                 nav.pushViewController(PremiumBuySubscriptionController(pickedName: name, kind: .premium, state: .onboardingFinish), animated: true)
             }), animated: true)
         }), for: .touchUpInside)
-        
+
         proInfoView.actionButton.addAction(.init(handler: { [weak self] _ in
             guard let nav = self?.navigationController else { return }
-            
+
             if let state = WalletManager.instance.premiumState {
                 nav.pushViewController(PremiumBuySubscriptionController(pickedName: state.name, kind: .pro, state: .upgradeToPro), animated: true)
                 return
             }
-            
-            nav.pushViewController(PremiumSearchNameController(title: "Find Primal Name", buttonTint: .pro, callback: { name in
+
+            nav.pushViewController(PremiumSearchNameController(title: "Get Started", buttonTint: .pro, callback: { name in
                 nav.pushViewController(PremiumBuySubscriptionController(pickedName: name, kind: .pro, state: .onboardingFinish), animated: true)
             }), animated: true)
         }), for: .touchUpInside)
@@ -315,7 +314,7 @@ class LearnAboutPremiumView: UIView {
         
         let stack = UIStackView(axis: .vertical, [])
         
-        let primalLabel = UILabel("Primal", color: .foreground, font: .appFont(withSize: 24, weight: .bold))
+        let primalLabel = UILabel("Lightning Enable", color: .foreground, font: .appFont(withSize: 24, weight: .bold))
         primalLabel.setContentHuggingPriority(.required, for: .horizontal)
         
         let titleStack = UIStackView([primalLabel, SpacerView(width: 2), UILabel(title, color: tint, font: .appFont(withSize: 24, weight: .bold))])
@@ -342,7 +341,7 @@ class LearnAboutPremiumView: UIView {
         }
         
         stack.addArrangedSubview(SpacerView(height: 0, priority: .init(1)))
-        actionButton.configuration = .pill(text: "Buy \(title)", foregroundColor: .white, backgroundColor: tint, font: .appFont(withSize: 18, weight: .semibold))
+        actionButton.configuration = .pill(text: "Get Started", foregroundColor: .white, backgroundColor: tint, font: .appFont(withSize: 18, weight: .semibold))
         stack.addArrangedSubview(actionButton)
         
         stack.spacing = 10

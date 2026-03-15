@@ -14,7 +14,7 @@ class PremiumBecomeLegendController: UIViewController {
         let descStack = UIStackView(axis: .vertical, [
             UILabel("The Legend tier was created to recognize",color: .foreground, font: .appFont(withSize: 15, weight: .regular)),
             UILabel("users who have made a significant",color: .foreground, font: .appFont(withSize: 15, weight: .regular)),
-            UILabel("contribution to Primal.",color: .foreground, font: .appFont(withSize: 15, weight: .regular))
+            UILabel("contribution to NostrWolfe.",color: .foreground, font: .appFont(withSize: 15, weight: .regular))
         ])
         descStack.alignment = .center
         descStack.spacing = 6
@@ -22,10 +22,10 @@ class PremiumBecomeLegendController: UIViewController {
         let titleLabel = UILabel("Donate $1000 or more to gain:", color: .foreground3, font: .appFont(withSize: 16, weight: .regular))
         titleLabel.textAlignment = .center
         
-        let privateBetaTitle = BecomeLegendTitledParagraph(title: "Way More Storage", paragraph: "Get 100GB of Primal Premium media storage.")
+        let privateBetaTitle = BecomeLegendTitledParagraph(title: "Way More Storage", paragraph: "Get 100GB of NostrWolfe Premium media storage.")
         let legendaryTitle = BecomeLegendTitledParagraph(title: "Legendary Custom Profile", paragraph: "Option to pick the color of your verified badge and set the glow around your avatar.")
         let infoStack = UIStackView(axis: .vertical, [
-            BecomeLegendTitledParagraph(title: "Forever Premium", paragraph: "Primal Premium subscription never expires for legends."),
+            BecomeLegendTitledParagraph(title: "Forever Premium", paragraph: "NostrWolfe Premium subscription never expires for legends."),
             privateBetaTitle,
             legendaryTitle,
         ])
@@ -50,7 +50,7 @@ class PremiumBecomeLegendController: UIViewController {
             .pinToSuperview(edges: .horizontal, padding: 35)
             .pinToSuperview(edges: .bottom, padding: 20, safeArea: true)
         
-        title = "Become a Primal Legend"
+        title = "Become a NostrWolfe Legend"
         view.backgroundColor = .background
         navigationItem.leftBarButtonItem = customBackButton
         
@@ -71,7 +71,7 @@ class PremiumBecomeLegendController: UIViewController {
         action.addAction(.init(handler: { [weak self] _ in
             guard let state = WalletManager.instance.premiumState else {
                 guard let nav = self?.navigationController else { return }
-                self?.show(PremiumSearchNameController(title: "Find Primal Name", callback: { name in
+                self?.show(PremiumSearchNameController(title: "Find NostrWolfe Name", callback: { name in
                     nav.pushViewController(PremiumLegendAmountController(state: .name(name)), animated: true)
                 }), sender: nil)
                 return

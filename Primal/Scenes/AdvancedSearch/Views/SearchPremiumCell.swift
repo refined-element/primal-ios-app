@@ -12,7 +12,7 @@ protocol SearchPremiumCellDelegate: AnyObject {
 }
 
 class SearchPremiumCell: UITableViewCell, Themeable {
-    let titleLabel = UILabel("This is a Primal Premium feed.", color: .foreground, font: .appFont(withSize: 20, weight: .semibold))
+    let titleLabel = UILabel("This is a NostrWolfe Premium feed.", color: .foreground, font: .appFont(withSize: 20, weight: .semibold))
     let subtitleLabel = UILabel()
     
     let actionButton = UIButton()
@@ -61,7 +61,7 @@ class SearchPremiumCell: UITableViewCell, Themeable {
         ])
 
         titleLabel.textColor = .foreground
-        actionButton.configuration = .accent("Get Primal Premium", font: .appFont(withSize: 14, weight: .regular))
+        actionButton.configuration = .accent("Get NostrWolfe Premium", font: .appFont(withSize: 14, weight: .regular))
         backgroundPill.backgroundColor = .background5
     }
 }

@@ -46,7 +46,12 @@ enum NostrKind: Int {
     case live = 30_311
     
     case handlerInfo = 31_990
-    
+
+    case agentCapability = 38_400
+    case agentServiceRequest = 38_401
+    case agentServiceAgreement = 38_402
+    case agentAttestation = 38_403
+
     case followList = 39_089
     
     case ack = 10_000_098

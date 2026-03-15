@@ -57,7 +57,7 @@ class PremiumManageLegendController: UIViewController {
     let highlightInputView = UIView()
     
     let editsUnderReviewLabel = UILabel("EDITS UNDER REVIEW", color: .foreground3, font: .appFont(withSize: 12, weight: .bold), multiline: true)
-    let infoLabel = UILabel("Legend cards contain a personalized shoutout from\nPrimal to all our legends.", color: .foreground3, font: .appFont(withSize: 12, weight: .regular), multiline: true)
+    let infoLabel = UILabel("Legend cards contain a personalized shoutout from\nNostrWolfe to all our legends.", color: .foreground3, font: .appFont(withSize: 12, weight: .regular), multiline: true)
     
     let countLabel = UILabel("", color: .foreground5, font: .appFont(withSize: 12, weight: .regular))
     
@@ -165,7 +165,7 @@ private extension PremiumManageLegendController {
         
         if hasShoutoutEdits {
             editsUnderReviewLabel.isHidden = false
-            infoLabel.text = "Your edits have been sent to primal for review. The updated content should be live soon."
+            infoLabel.text = "Your edits have been sent to NostrWolfe for review. The updated content should be live soon."
         } else {
             editsUnderReviewLabel.isHidden = true
         }
@@ -348,7 +348,7 @@ private extension PremiumManageLegendController {
             
             self?.sendUpdate(shoutoutEdit: self?.shoutoutInput.text ?? "")
             self?.editsUnderReviewLabel.isHidden = false
-            self?.infoLabel.text = "Your edits have been sent to primal for review. The updated content should be live soon."
+            self?.infoLabel.text = "Your edits have been sent to NostrWolfe for review. The updated content should be live soon."
             self?.closeInputView()
         }), for: .touchUpInside)
     }

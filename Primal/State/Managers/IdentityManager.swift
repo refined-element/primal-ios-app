@@ -11,7 +11,7 @@ import GenericJSON
 import UIKit
 import Kingfisher
 
-let APP_NAME = "Primal-iOS App"
+let APP_NAME = "NostrWolfe-iOS App"
 
 final class IdentityManager {
     private init() {

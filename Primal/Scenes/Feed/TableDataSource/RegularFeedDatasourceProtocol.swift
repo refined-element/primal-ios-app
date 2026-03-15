@@ -25,6 +25,9 @@ enum NoteFeedElement: Hashable {
     case live
     case invoice
     case l402Paywall
+    case agentCapability
+    case agentServiceRequest
+    case agentServiceAgreement
     case reactions
 }
 
@@ -70,6 +73,12 @@ extension NoteFeedElement {
             return FeedElementInvoiceCell.cellID
         case .l402Paywall:
             return FeedElementL402PaywallCell.cellID
+        case .agentCapability:
+            return FeedElementAgentCapabilityCell.cellID
+        case .agentServiceRequest:
+            return FeedElementAgentServiceRequestCell.cellID
+        case .agentServiceAgreement:
+            return FeedElementASAContractCell.cellID
         case .reactions:
             return FeedElementReactionsCell.cellID
         }
@@ -91,6 +100,9 @@ extension RegularFeedDatasourceProtocol {
         tableView.register(FeedElementZapPreviewCell.self, forCellReuseIdentifier: FeedElementZapPreviewCell.cellID)
         tableView.register(FeedElementInvoiceCell.self, forCellReuseIdentifier: FeedElementInvoiceCell.cellID)
         tableView.register(FeedElementL402PaywallCell.self, forCellReuseIdentifier: FeedElementL402PaywallCell.cellID)
+        tableView.register(FeedElementAgentCapabilityCell.self, forCellReuseIdentifier: FeedElementAgentCapabilityCell.cellID)
+        tableView.register(FeedElementAgentServiceRequestCell.self, forCellReuseIdentifier: FeedElementAgentServiceRequestCell.cellID)
+        tableView.register(FeedElementASAContractCell.self, forCellReuseIdentifier: FeedElementASAContractCell.cellID)
         tableView.register(FeedElementReactionsCell.self, forCellReuseIdentifier: FeedElementReactionsCell.cellID)
         tableView.register(FeedElementArticleCell.self, forCellReuseIdentifier: FeedElementArticleCell.cellID)
         tableView.register(FeedElementLivePreviewCell.self, forCellReuseIdentifier: FeedElementLivePreviewCell.cellID)
@@ -114,6 +126,9 @@ extension RegularFeedDatasourceProtocol {
             if !content.mediaResources.isEmpty { parts.append(.imageGallery) }
             if let invoice = content.invoice { parts.append(.invoice) }
             if content.l402Gate != nil { parts.append(.l402Paywall) }
+            if content.agentCapability != nil { parts.append(.agentCapability) }
+            if content.agentServiceRequest != nil { parts.append(.agentServiceRequest) }
+            if content.agentServiceAgreement != nil { parts.append(.agentServiceAgreement) }
             if let article = content.article { parts.append(.article) }
             
             if short, let embedded = content.embeddedPosts.first {

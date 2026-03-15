@@ -1,0 +1,183 @@
+{
+  "project": "NostrWolfe Phase 1",
+  "created": "2026-03-14",
+  "updated": "2026-03-14",
+  "tasks": [
+    {
+      "id": "A1",
+      "stream": "A",
+      "name": "App Identity Rebrand",
+      "status": "done",
+      "depends_on": [],
+      "files_modified": ["Primal.xcodeproj/project.pbxproj", "Primal/Info.plist", "Primal/Primal.entitlements", "PrimalNotifications/PrimalNotifications.entitlements", "Primal/Launch Screen.storyboard", "12+ Swift files with user-visible Primal text"],
+      "done_criteria": ["Display name is NostrWolfe", "Bundle ID net.nostrwolfe.ios", "URL scheme added", "Entitlements updated", "User-visible text updated"]
+    },
+    {
+      "id": "A2",
+      "stream": "A",
+      "name": "Wolf Logo",
+      "status": "done",
+      "depends_on": [],
+      "files_modified": ["Primal/Assets.xcassets/AppIcon.appiconset/1024x1024.png"],
+      "done_criteria": ["Wolf icon generated (SVG-based)", "1024x1024 PNG in place"],
+      "notes": "Generated via SVG+ImageMagick. Gemini API key not configured for higher quality. Can regenerate later."
+    },
+    {
+      "id": "B1",
+      "stream": "B",
+      "name": "NostrKind Extensions",
+      "status": "done",
+      "depends_on": [],
+      "files_modified": ["Primal/State/Model/NostrKind.swift"],
+      "done_criteria": ["3 new cases: agentCapability=38400, agentServiceRequest=38401, agentServiceAgreement=38402"]
+    },
+    {
+      "id": "B2",
+      "stream": "B",
+      "name": "Tag Helpers",
+      "status": "done",
+      "depends_on": [],
+      "files_created": ["Primal/Common/Nostr/NostrTagHelpers.swift"],
+      "done_criteria": ["firstTag, allTags, tagValue, tagValues methods"]
+    },
+    {
+      "id": "B3",
+      "stream": "B",
+      "name": "Agent Data Models",
+      "status": "done",
+      "depends_on": ["B1", "B2"],
+      "files_created": ["Primal/State/Model/AgentModels.swift"],
+      "done_criteria": ["AgentCapability, AgentPricing, AgentServiceRequest, ASAStatus, ASATerm, AgentServiceAgreement, ASANegotiationMessage"]
+    },
+    {
+      "id": "B4",
+      "stream": "B",
+      "name": "NostrObject Event Creators",
+      "status": "done",
+      "depends_on": ["B1"],
+      "files_modified": ["Primal/Common/Nostr/NostrObject+Extra.swift"],
+      "done_criteria": ["agentCapability(), agentServiceRequest(), agentServiceAgreement() factory methods"]
+    },
+    {
+      "id": "C1",
+      "stream": "C",
+      "name": "ASAManager Singleton",
+      "status": "done",
+      "depends_on": ["B3", "B4"],
+      "files_created": ["Primal/State/Managers/ASAManager.swift"],
+      "done_criteria": ["Singleton with @Published state, discovery, publishing, negotiation, settlement"]
+    },
+    {
+      "id": "C2",
+      "stream": "C",
+      "name": "Discovery",
+      "status": "done",
+      "depends_on": ["C1"],
+      "done_criteria": ["queryCapabilities builds filter", "processEvent routes events to arrays"]
+    },
+    {
+      "id": "C3",
+      "stream": "C",
+      "name": "Publishing",
+      "status": "done",
+      "depends_on": ["C1"],
+      "done_criteria": ["publishCapability, publishServiceRequest, publishAgreement, updateAgreementStatus"]
+    },
+    {
+      "id": "C4",
+      "stream": "C",
+      "name": "Negotiation",
+      "status": "done",
+      "depends_on": ["C1"],
+      "done_criteria": ["sendNegotiationMessage encodes JSON + sends encrypted DM", "parseNegotiationMessage decodes"]
+    },
+    {
+      "id": "C5",
+      "stream": "C",
+      "name": "Settlement",
+      "status": "done",
+      "depends_on": ["C1"],
+      "done_criteria": ["executeService delegates to L402Client.shared.access()", "Updates agreement status on completion"]
+    },
+    {
+      "id": "D1",
+      "stream": "D",
+      "name": "ParsedContent + NoteProcessor",
+      "status": "done",
+      "depends_on": ["B3"],
+      "files_modified": ["Primal/Common/Notes/ParsedContent.swift", "Primal/State/Model/Helpers/NoteProcessor.swift"],
+      "done_criteria": ["3 agent properties on ParsedContent + copy()", "NoteProcessor parses kinds 38400-38402"]
+    },
+    {
+      "id": "D2",
+      "stream": "D",
+      "name": "Card Views",
+      "status": "done",
+      "depends_on": ["B3"],
+      "files_created": [
+        "Primal/Common/Views/Feed/AgentCapabilityCardView.swift",
+        "Primal/Common/Views/Feed/AgentServiceRequestCardView.swift",
+        "Primal/Common/Views/Feed/ASAContractCardView.swift"
+      ],
+      "done_criteria": ["All 3 views with configure(), updateTheme(), delegate protocols"]
+    },
+    {
+      "id": "D3",
+      "stream": "D",
+      "name": "Feed Cells",
+      "status": "done",
+      "depends_on": ["D2"],
+      "files_created": [
+        "Primal/Scenes/Feed/FeedElementCells/FeedElementAgentCapabilityCell.swift",
+        "Primal/Scenes/Feed/FeedElementCells/FeedElementAgentServiceRequestCell.swift",
+        "Primal/Scenes/Feed/FeedElementCells/FeedElementASAContractCell.swift"
+      ],
+      "done_criteria": ["All 3 cells follow FeedElementL402PaywallCell pattern"]
+    },
+    {
+      "id": "D4",
+      "stream": "D",
+      "name": "Feed Datasource Wiring",
+      "status": "done",
+      "depends_on": ["D3"],
+      "files_modified": [
+        "Primal/Scenes/Feed/TableDataSource/RegularFeedDatasourceProtocol.swift",
+        "Primal/Common/Views/Feed/PostCell/Helpers/PostCellEvent.swift",
+        "Primal/Scenes/Feed/NoteViewController.swift"
+      ],
+      "done_criteria": ["3 NoteFeedElement cases", "3 PostCellEvent cases", "3 NoteViewController handlers"]
+    },
+    {
+      "id": "E1",
+      "stream": "E",
+      "name": "Xcode Project File",
+      "status": "done",
+      "depends_on": ["C1", "D3"],
+      "files_modified": ["Primal.xcodeproj/project.pbxproj"],
+      "done_criteria": ["All 9 new Swift files added to PBXBuildFile, PBXFileReference, PBXGroup, PBXSourcesBuildPhase"]
+    },
+    {
+      "id": "F1",
+      "stream": "F",
+      "name": "Landing Page",
+      "status": "done",
+      "depends_on": [],
+      "files_created": ["nostrwolfe-site/index.html", "nostrwolfe-site/styles.css"],
+      "done_criteria": ["693-line HTML with all sections", "1106-line CSS with dark theme + responsive", "JSON-LD + OG tags"]
+    },
+    {
+      "id": "F2",
+      "stream": "F",
+      "name": "AEO Files",
+      "status": "done",
+      "depends_on": [],
+      "files_created": [
+        "nostrwolfe-site/agents.md",
+        "nostrwolfe-site/llms.txt",
+        "nostrwolfe-site/.well-known/agents.json",
+        "nostrwolfe-site/robots.txt"
+      ],
+      "done_criteria": ["All 4 AEO files complete", "Machine-parseable", "AI crawler permissions"]
+    }
+  ]
+}

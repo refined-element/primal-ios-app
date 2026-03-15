@@ -166,15 +166,16 @@ private extension MenuContainerController {
         let followStack = UIStackView(arrangedSubviews: [followingLabel, followingDescLabel, followersLabel, followersDescLabel])
         
         let profile = MenuItemButton(title: "PROFILE", image: .menuSidebarProfile)
-        let premium = MenuItemButton(title: "PREMIUM", image: .menuSidebarPremium)
+        let premium = MenuItemButton(title: "AGENT PLANS", image: .menuSidebarPremium)
+        let agents = MenuItemButton(title: "AGENT DASHBOARD", image: UIImage(systemName: "cpu")?.withRenderingMode(.alwaysTemplate))
         let messages = MenuItemButton(title: "MESSAGES", image: .menuSidebarMessages)
         let bookmarks = MenuItemButton(title: "BOOKMARKS", image: .menuSidebarBookmarks)
         let remoteLogin = MenuItemButton(title: "Remote Login", image: .remoteSessionIcon.scalePreservingAspectRatio(size: 18))
         let redeemCode = MenuItemButton(title: "Scan Code", image: .barcode.scalePreservingAspectRatio(size: 18))
         let settings = MenuItemButton(title: "SETTINGS", image: .menuSidebarSettings)
         let signOut = MenuItemButton(title: "SIGN OUT", image: .menuSidebarSignout)
-        
-        let buttonsStack = UIStackView(arrangedSubviews: [profile, premium, messages, bookmarks, remoteLogin, redeemCode, settings, signOut])
+
+        let buttonsStack = UIStackView(arrangedSubviews: [profile, premium, agents, messages, bookmarks, remoteLogin, redeemCode, settings, signOut])
         [
             profileImageRow, titleStack, domainLabel, followStack,
             buttonsStack, UIView(), themeButton
@@ -298,6 +299,7 @@ private extension MenuContainerController {
         messages.addAction(.init(handler: { [unowned self] _ in showViewController(MessagesViewController()) }), for: .touchUpInside)
         bookmarks.addAction(.init(handler: { [unowned self] _ in showViewController(PublicBookmarksViewController()) }), for: .touchUpInside)
         premium.addAction(.init(handler: { [unowned self] _ in showViewController(PremiumViewController()) }), for: .touchUpInside)
+        agents.addAction(.init(handler: { [unowned self] _ in showViewController(AgentFeedViewController()) }), for: .touchUpInside)
         redeemCode.addAction(.init(handler: { [unowned self] _ in
             present(ScanAnythingController(), animated: true)
             animateClose()

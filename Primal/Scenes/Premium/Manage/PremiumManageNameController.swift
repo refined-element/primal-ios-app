@@ -32,14 +32,14 @@ private extension PremiumManageNameController {
     func setup() {
         navigationItem.leftBarButtonItem = customBackButton
         view.backgroundColor = .background
-        title = "Change Primal name"
+        title = "Change NostrWolfe name"
         
         let table = PremiumSearchTableView()
         
         let contentStack = UIStackView(axis: .vertical, [])
         contentStack.distribution = .equalSpacing
         
-        let actionButton = LargeRoundedButton(title: "Change Primal Name Now")
+        let actionButton = LargeRoundedButton(title: "Change NostrWolfe Name Now")
         
         let mainStack = UIStackView(axis: .vertical, [
             table,
@@ -81,9 +81,9 @@ private extension PremiumManageNameController {
                         return
                     }
                     
-                    actionButton.title = "Primal Name Changed"
+                    actionButton.title = "NostrWolfe Name Changed"
                     actionButton.isEnabled = false
-                    title = "Primal name changed"
+                    title = "NostrWolfe name changed"
                     
                     if var user = IdentityManager.instance.parsedUser?.data.profileData {
                         var shouldUpdate = false
@@ -135,7 +135,7 @@ private extension PremiumManageNameController {
         userStack.alignment = .center
         
         userStack.setCustomSpacing(24, after: nameStack)
-        userStack.addArrangedSubview(UILabel("Your Primal Name is available!", color: .init(rgb: 0x52CE0A), font: .appFont(withSize: 16, weight: .semibold)))
+        userStack.addArrangedSubview(UILabel("Your NostrWolfe Name is available!", color: .init(rgb: 0x52CE0A), font: .appFont(withSize: 16, weight: .semibold)))
         
         return userStack
     }

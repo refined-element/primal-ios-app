@@ -41,17 +41,24 @@ final class SettingsDevModeController: UIViewController, Themeable {
 private extension SettingsDevModeController {
     func setup() {
         title = "Dev Mode"
-        
+
 //        let devMode = SettingsSwitchView("Enable Dev Mode")
         let scrollButton = SettingsSwitchView("Enable Smooth Scroll Button")
-        
+        let agentDemoToggle = SettingsSwitchView("Show Agent Demo Cards")
+        let agentFeedButton = SettingsInfoView(name: "View Agent Feed", desc: "", showArrow: true)
+
         let stack = UIStackView(axis: .vertical, [
 //            devMode, SpacerView(height: 10),
 //            descLabel("Show the connected state in the top right corner of the screen. More dev features to come."), SpacerView(height: 20),
 //            SettingsBorder(), SpacerView(height: 20),
             scrollButton, SpacerView(height: 10),
             descLabel("Show the button for smooth scrolling"), SpacerView(height: 20),
-            smoothScrollSpeed, SpacerView(height: 20)
+            smoothScrollSpeed, SpacerView(height: 20),
+            SettingsBorder(), SpacerView(height: 20),
+            agentDemoToggle, SpacerView(height: 10),
+            descLabel("Show demo Agent Capability, Service Request, and ASA Contract cards in the Agent feed."), SpacerView(height: 20),
+            agentFeedButton, SpacerView(height: 10),
+            descLabel("Open the dedicated Agent Services feed showing capabilities, requests, and agreements."), SpacerView(height: 20)
         ])
         
         let scroll = UIScrollView()
@@ -69,6 +76,7 @@ private extension SettingsDevModeController {
         
 //        devMode.switchView.isOn = DevModeSettings.enableDevMode
         scrollButton.switchView.isOn = !RootViewController.instance.smoothScrollButton.isHidden
+        agentDemoToggle.switchView.isOn = ASAManager.demoModeEnabled
         
 //        devMode.switchView.addAction(.init(handler: { [weak devMode] _ in
 //            guard let value = devMode?.switchView.isOn else { return }
@@ -80,7 +88,16 @@ private extension SettingsDevModeController {
             guard let value = scrollButton?.switchView.isOn else { return }
             RootViewController.instance.smoothScrollButton.isHidden = !value
         }), for: .valueChanged)
-        
+
+        agentDemoToggle.switchView.addAction(.init(handler: { [weak agentDemoToggle] _ in
+            guard let value = agentDemoToggle?.switchView.isOn else { return }
+            ASAManager.demoModeEnabled = value
+        }), for: .valueChanged)
+
+        agentFeedButton.addAction(.init(handler: { [weak self] _ in
+            self?.show(AgentFeedViewController(), sender: nil)
+        }), for: .touchUpInside)
+
         smoothScrollSpeed.addAction(.init(handler: { [weak self] _ in
             self?.show(SettingsEditSmoothScrollSpeedController(), sender: nil)
         }), for: .touchUpInside)

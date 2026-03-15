@@ -69,7 +69,7 @@ final class SolidColorUIButton: UIButton {
 extension UIControl {
     func addDisabledNSecWarning(_ viewController: UIViewController) {
         addAction(.init(handler: { [weak viewController] _ in
-            viewController?.showErrorMessage(title: "Logged in with npub", "Primal is in read only mode because you are signed in via your public key. To enable all options, please sign in with your private key, starting with 'nsec...")
+            viewController?.showErrorMessage(title: "Logged in with npub", "NostrWolfe is in read only mode because you are signed in via your public key. To enable all options, please sign in with your private key, starting with 'nsec...")
         }), for: .touchUpInside)
     }
 }

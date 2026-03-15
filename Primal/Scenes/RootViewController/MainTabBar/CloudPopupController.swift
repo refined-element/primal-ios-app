@@ -53,8 +53,8 @@ class CloudPopupController: UIViewController {
         
         let mainStack = UIStackView(axis: .vertical, [
             userImage, SpacerView(height: 20),
-            UILabel("Welcome to Primal \(appVersion)!", color: .foreground, font: .appFont(withSize: 22, weight: .bold), multiline: true),
-            UILabel("You can now securely back up your\nPrimal key to iCloud Keychain.", color: .foreground3, font: .appFont(withSize: 15, weight: .regular), multiline: true),
+            UILabel("Welcome to NostrWolfe \(appVersion)!", color: .foreground, font: .appFont(withSize: 22, weight: .bold), multiline: true),
+            UILabel("You can now securely back up your\nNostrWolfe key to iCloud Keychain.", color: .foreground3, font: .appFont(withSize: 15, weight: .regular), multiline: true),
             SpacerView(height: 22),
             descLabel, SpacerView(height: 30, priority: .defaultLow),
             switchView, SpacerView(height: 32, priority: .defaultLow),

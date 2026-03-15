@@ -27,11 +27,11 @@ final class ScanAnythingController: UIPageViewController {
         switch labelStyle {
         case .enterAnything:
             vc.titleLabel.text = "Enter Anything"
-            vc.descLabel.text = "Invite code, payment invoice, login string,\nuser link, content link, primal gift card code"
+            vc.descLabel.text = "Invite code, payment invoice, login string,\nuser link, content link, NostrWolfe gift card code"
             vc.placeholderLabel.text = "Enter code..."
         case .remoteLogin:
             vc.titleLabel.text = "Remote Login"
-            vc.descLabel.text = "Use your Primal account to login to any Nostr app that supports remote sign in. Paste the connection string below:"
+            vc.descLabel.text = "Use your NostrWolfe account to login to any Nostr app that supports remote sign in. Paste the connection string below:"
             vc.placeholderLabel.text = "nostrconnect://"
         }
         return vc
@@ -54,11 +54,11 @@ final class ScanAnythingController: UIPageViewController {
         case .enterAnything:
             qrController.titleLabel.text = "Scan Code"
             qrController.descTitleLabel.text = "Scan Anything:"
-            qrController.descLabel.text = "Invite code, payment invoice, login string,\nuser link, content link, primal gift card"
+            qrController.descLabel.text = "Invite code, payment invoice, login string,\nuser link, content link, NostrWolfe gift card"
         case .remoteLogin:
             qrController.titleLabel.text = "Remote Login"
             qrController.descTitleLabel.text = "Login to Any Nostr App"
-            qrController.descLabel.text = "Use your Primal account to login to any\nNostr app that supports remote sign in. "
+            qrController.descLabel.text = "Use your NostrWolfe account to login to any\nNostr app that supports remote sign in. "
         }
         
         dataSource = self

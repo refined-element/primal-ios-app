@@ -86,7 +86,7 @@ class RemoteSignerDisclosureController: UIViewController {
         let contentStack = UIStackView(axis: .vertical, [
             SpacerView(height: 8),
             SpacerView(height: 8),
-            UILabel("To keep running while Primal is in the background, we need to play ambient sound when you lock your phone or switch apps.", color: .foreground3, font: .appFont(withSize: 16, weight: .regular), multiline: true),
+            UILabel("To keep running while NostrWolfe is in the background, we need to play ambient sound when you lock your phone or switch apps.", color: .foreground3, font: .appFont(withSize: 16, weight: .regular), multiline: true),
             SpacerView(height: 20),
             dynamicImage,
             SpacerView(height: 20),
@@ -114,7 +114,7 @@ class RemoteSignerDisclosureController: UIViewController {
         
         switchView.switchView.addAction(.init(handler: { [weak switchView, weak self] _ in
             if switchView?.switchView.isOn == false {
-                let alert = UIAlertController(title: "Are you sure?", message: "If you disable ambient sound, you will need to keep Primal open during your remote session.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Are you sure?", message: "If you disable ambient sound, you will need to keep NostrWolfe open during your remote session.", preferredStyle: .alert)
                 alert.addAction(.init(title: "Cancel", style: .cancel, handler: { _ in
                     switchView?.switchView.isOn = true
                 }))

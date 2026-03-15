@@ -19,7 +19,7 @@ final class ScanAnythingQRController: UIViewController, QRCaptureController, Wal
     
     
     let descTitleLabel = UILabel("Scan Anything:", color: .white, font: .appFont(withSize: 16, weight: .bold), multiline: true)
-    let descLabel = UILabel("Invite code, payment invoice, login string,\nuser link, content link, primal gift card", color: .white.withAlphaComponent(0.75), font: .appFont(withSize: 14, weight: .regular), multiline: true)
+    let descLabel = UILabel("Invite code, payment invoice, login string,\nuser link, content link, NostrWolfe gift card", color: .white.withAlphaComponent(0.75), font: .appFont(withSize: 14, weight: .regular), multiline: true)
     
     let enterCodeButton = WalletSendSmallActionBlackButton(title: "Use Keyboard Instead", icon: .walletTabKeyboard)
     

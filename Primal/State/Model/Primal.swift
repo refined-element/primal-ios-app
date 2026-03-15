@@ -304,6 +304,23 @@ struct PrimalFeedPost : Codable, Identifiable, Hashable {
         self.score24h = score24h
         self.reposts = reposts
     }
+
+    init(id: String, kind: Int, pubkey: String, created_at: Double, tags: [[String]], content: String, sig: String, likes: Int, mentions: Int, replies: Int, zaps: Int, satszapped: Int, score24h: Int, reposts: Int) {
+        self.id = id
+        self.kind = kind
+        self.pubkey = pubkey
+        self.created_at = created_at
+        self.tags = tags
+        self.content = content
+        self.sig = sig
+        self.likes = likes
+        self.mentions = mentions
+        self.replies = replies
+        self.zaps = zaps
+        self.satszapped = satszapped
+        self.score24h = score24h
+        self.reposts = reposts
+    }
     
     func toRepostNostrContent() -> NostrContent {
         return NostrContent(kind: Int32(kind), content: content, id: id, created_at: self.created_at, pubkey: self.pubkey, sig: self.sig, tags: self.tags)

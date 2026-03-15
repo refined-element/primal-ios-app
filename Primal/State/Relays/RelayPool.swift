@@ -87,6 +87,33 @@ final class RelayPool {
         relays.append(relay)
     }
     
+    /// Send a REQ subscription to all connected relays.
+    func requestREQ(subscriptionId: String, filters: [JSON], handler: @escaping (_ event: JSON, _ relay: String) -> Void) {
+        Self.dispatchQueue.async {
+            for connection in self.connections {
+                if connection.state.value == .connected {
+                    connection.requestREQ(subscriptionId: subscriptionId, filters: filters, handler: handler)
+                } else {
+                    connection.connect()
+                    Self.dispatchQueue.asyncAfter(deadline: .now() + .seconds(3)) {
+                        if connection.state.value == .connected {
+                            connection.requestREQ(subscriptionId: subscriptionId, filters: filters, handler: handler)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /// Close a REQ subscription on all connected relays.
+    func closeREQ(subscriptionId: String) {
+        Self.dispatchQueue.async {
+            for connection in self.connections {
+                connection.closeREQ(subscriptionId: subscriptionId)
+            }
+        }
+    }
+
     func request(_ ev: NostrObject, _ handler: @escaping (_ result: [JSON], _ relay: String) -> Void) {
         Self.dispatchQueue.async {
             for connection in self.connections {

@@ -146,6 +146,17 @@
 		AA0000000000000000000003 /* L402ContentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000004 /* L402ContentManager.swift */; };
 		AA0000000000000000000005 /* L402PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000006 /* L402PaywallView.swift */; };
 		AA0000000000000000000007 /* FeedElementL402PaywallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000008 /* FeedElementL402PaywallCell.swift */; };
+		AA0000000000000000000009 /* NostrTagHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000000A /* NostrTagHelpers.swift */; };
+		AA000000000000000000000B /* AgentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000000C /* AgentModels.swift */; };
+		AA000000000000000000000D /* ASAManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000000E /* ASAManager.swift */; };
+		AA000000000000000000001B /* AgentDemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000001C /* AgentDemoData.swift */; };
+		AA000000000000000000001D /* AgentFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000001E /* AgentFeedViewController.swift */; };
+		AA000000000000000000000F /* AgentCapabilityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000010 /* AgentCapabilityCardView.swift */; };
+		AA0000000000000000000011 /* AgentServiceRequestCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000012 /* AgentServiceRequestCardView.swift */; };
+		AA0000000000000000000013 /* ASAContractCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000014 /* ASAContractCardView.swift */; };
+		AA0000000000000000000015 /* FeedElementAgentCapabilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000016 /* FeedElementAgentCapabilityCell.swift */; };
+		AA0000000000000000000017 /* FeedElementAgentServiceRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000018 /* FeedElementAgentServiceRequestCell.swift */; };
+		AA0000000000000000000019 /* FeedElementASAContractCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000001A /* FeedElementASAContractCell.swift */; };
 		9E8834C82A378DA5005DB548 /* Publisher+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8834C72A378DA5005DB548 /* Publisher+Extra.swift */; };
 		9E8834CA2A379672005DB548 /* NSRange+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8834C92A379672005DB548 /* NSRange+Extra.swift */; };
 		9E8834CC2A37A5EB005DB548 /* UserInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8834CB2A37A5EB005DB548 /* UserInfoTableCell.swift */; };
@@ -402,6 +413,9 @@
 		B94A0E302ABA22A600DEBFE1 /* ChatTextViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0E2F2ABA22A600DEBFE1 /* ChatTextViewManager.swift */; };
 		B94A0E322ABA30D900DEBFE1 /* TextViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0E312ABA30D900DEBFE1 /* TextViewManager.swift */; };
 		B94B18A02D5E233600A932CE /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94B189F2D5E233600A932CE /* RegexTests.swift */; };
+		C1DEF58CD3774981894C94E8 /* NostrTagHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A664BCDDC29845B59F573AC3 /* NostrTagHelpersTests.swift */; };
+		EE2CFC41F6964BBCB7F73989 /* AgentModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A39512DD77E451CB6DF709C /* AgentModelsTests.swift */; };
+		512A95273924477F933B5043 /* ASAManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B40464DA704A3F87A72D8E /* ASAManagerTests.swift */; };
 		B94F2BAF2AD04FE40041181B /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F2BAE2AD04FE40041181B /* WalletManager.swift */; };
 		B94F2BB12AD053020041181B /* PrimalWalletRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F2BB02AD053020041181B /* PrimalWalletRequest.swift */; };
 		B94F2BB32AD056D10041181B /* WalletRequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F2BB22AD056D10041181B /* WalletRequestResult.swift */; };
@@ -960,6 +974,17 @@
 		AA0000000000000000000004 /* L402ContentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L402ContentManager.swift; sourceTree = "<group>"; };
 		AA0000000000000000000006 /* L402PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L402PaywallView.swift; sourceTree = "<group>"; };
 		AA0000000000000000000008 /* FeedElementL402PaywallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedElementL402PaywallCell.swift; sourceTree = "<group>"; };
+		AA000000000000000000000A /* NostrTagHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NostrTagHelpers.swift; sourceTree = "<group>"; };
+		AA000000000000000000000C /* AgentModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentModels.swift; sourceTree = "<group>"; };
+		AA000000000000000000000E /* ASAManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAManager.swift; sourceTree = "<group>"; };
+		AA000000000000000000001C /* AgentDemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDemoData.swift; sourceTree = "<group>"; };
+		AA000000000000000000001E /* AgentFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentFeedViewController.swift; sourceTree = "<group>"; };
+		AA0000000000000000000010 /* AgentCapabilityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCapabilityCardView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000012 /* AgentServiceRequestCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentServiceRequestCardView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000014 /* ASAContractCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAContractCardView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000016 /* FeedElementAgentCapabilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedElementAgentCapabilityCell.swift; sourceTree = "<group>"; };
+		AA0000000000000000000018 /* FeedElementAgentServiceRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedElementAgentServiceRequestCell.swift; sourceTree = "<group>"; };
+		AA000000000000000000001A /* FeedElementASAContractCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedElementASAContractCell.swift; sourceTree = "<group>"; };
 		9E8834C72A378DA5005DB548 /* Publisher+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extra.swift"; sourceTree = "<group>"; };
 		9E8834C92A379672005DB548 /* NSRange+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRange+Extra.swift"; sourceTree = "<group>"; };
 		9E8834CB2A37A5EB005DB548 /* UserInfoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableCell.swift; sourceTree = "<group>"; };
@@ -1208,6 +1233,9 @@
 		B94A0E2F2ABA22A600DEBFE1 /* ChatTextViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextViewManager.swift; sourceTree = "<group>"; };
 		B94A0E312ABA30D900DEBFE1 /* TextViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewManager.swift; sourceTree = "<group>"; };
 		B94B189F2D5E233600A932CE /* RegexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
+		A664BCDDC29845B59F573AC3 /* NostrTagHelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NostrTagHelpersTests.swift; sourceTree = "<group>"; };
+		5A39512DD77E451CB6DF709C /* AgentModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentModelsTests.swift; sourceTree = "<group>"; };
+		C3B40464DA704A3F87A72D8E /* ASAManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAManagerTests.swift; sourceTree = "<group>"; };
 		B94F2BAE2AD04FE40041181B /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		B94F2BB02AD053020041181B /* PrimalWalletRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimalWalletRequest.swift; sourceTree = "<group>"; };
 		B94F2BB22AD056D10041181B /* WalletRequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRequestResult.swift; sourceTree = "<group>"; };
@@ -1646,8 +1674,18 @@
 			children = (
 				9E8834CD2A37BFB9005DB548 /* NSRangeTests.swift */,
 				B94B189F2D5E233600A932CE /* RegexTests.swift */,
+				A664BCDDC29845B59F573AC3 /* NostrTagHelpersTests.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		EF67D03A435D4EB7ACD59FCA /* Agent */ = {
+			isa = PBXGroup;
+			children = (
+				5A39512DD77E451CB6DF709C /* AgentModelsTests.swift */,
+				C3B40464DA704A3F87A72D8E /* ASAManagerTests.swift */,
+			);
+			path = Agent;
 			sourceTree = "<group>";
 		};
 		933DBDB12A1126CE008DCF1F /* Frameworks */ = {
@@ -1684,6 +1722,7 @@
 			children = (
 				93906B932A55B5D000962A94 /* NostrObject.swift */,
 				932D84DA2A5755FE007DA0E8 /* NostrObject+Extra.swift */,
+				AA000000000000000000000A /* NostrTagHelpers.swift */,
 				9309D2342A5EAFDF00FD2127 /* NostrKeypair.swift */,
 				933B85762A9F6EE300C48FF6 /* Utils.swift */,
 			);
@@ -1750,6 +1789,7 @@
 			isa = PBXGroup;
 			children = (
 				933DBDAD2A112593008DCF1F /* Common */,
+				EF67D03A435D4EB7ACD59FCA /* Agent */,
 				9393310629A3E370003954C2 /* PrimalTests.swift */,
 			);
 			path = PrimalTests;
@@ -1972,6 +2012,8 @@
 				B917982B2EE0690D00EF29EF /* RemoteSigning */,
 				B9370EE52DE5EDFC004A9760 /* WalletManager */,
 				AA0000000000000000000004 /* L402ContentManager.swift */,
+				AA000000000000000000000E /* ASAManager.swift */,
+				AA000000000000000000001C /* AgentDemoData.swift */,
 				93F27DA32A27EA04004ADA55 /* FollowManager.swift */,
 				93F27DA52A27EA6D004ADA55 /* IdentityManager.swift */,
 				93F27DA92A27FB41004ADA55 /* PostingManager.swift */,
@@ -1999,6 +2041,7 @@
 				B906AB052C99F3F70089813F /* Database */,
 				9393313029A3E565003954C2 /* Helpers */,
 				9344DB302A1D28EB00C9F281 /* NostrKind.swift */,
+				AA000000000000000000000C /* AgentModels.swift */,
 				9393313329A3E575003954C2 /* Primal.swift */,
 				9393313129A3E56F003954C2 /* NostrContent.swift */,
 				93F27DAE2A280F4C004ADA55 /* PostRequestResult.swift */,
@@ -2179,6 +2222,9 @@
 				B91E57172CD93C7100C14809 /* ZapPreviewView.swift */,
 				B91EF0E32CECDE1600299ECF /* UserImageView.swift */,
 				AA0000000000000000000006 /* L402PaywallView.swift */,
+				AA0000000000000000000010 /* AgentCapabilityCardView.swift */,
+				AA0000000000000000000012 /* AgentServiceRequestCardView.swift */,
+				AA0000000000000000000014 /* ASAContractCardView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -2332,8 +2378,17 @@
 				B94F2BB72AD410FA0041181B /* Wallet */,
 				B94A0E222AA8C7C500DEBFE1 /* Messagges */,
 				9E55F2882A1FA6CD00D5D523 /* Settings */,
+				AA000000000000000000001F /* Agents */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		AA000000000000000000001F /* Agents */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000001E /* AgentFeedViewController.swift */,
+			);
+			path = Agents;
 			sourceTree = "<group>";
 		};
 		9E9F2F6B29F6AB6400A9CDF3 /* Onboarding */ = {
@@ -3476,6 +3531,9 @@
 				B9E67E8A2D0766F1006BB397 /* FeedElementReactionsCell.swift */,
 				B9E67E902D07682B006BB397 /* FeedElementArticleCell.swift */,
 				AA0000000000000000000008 /* FeedElementL402PaywallCell.swift */,
+				AA0000000000000000000016 /* FeedElementAgentCapabilityCell.swift */,
+				AA0000000000000000000018 /* FeedElementAgentServiceRequestCell.swift */,
+				AA000000000000000000001A /* FeedElementASAContractCell.swift */,
 			);
 			path = FeedElementCells;
 			sourceTree = "<group>";
@@ -4435,6 +4493,17 @@
 				AA0000000000000000000003 /* L402ContentManager.swift in Sources */,
 				AA0000000000000000000005 /* L402PaywallView.swift in Sources */,
 				AA0000000000000000000007 /* FeedElementL402PaywallCell.swift in Sources */,
+				AA0000000000000000000009 /* NostrTagHelpers.swift in Sources */,
+				AA000000000000000000000B /* AgentModels.swift in Sources */,
+				AA000000000000000000000D /* ASAManager.swift in Sources */,
+				AA000000000000000000001B /* AgentDemoData.swift in Sources */,
+				AA000000000000000000001D /* AgentFeedViewController.swift in Sources */,
+				AA000000000000000000000F /* AgentCapabilityCardView.swift in Sources */,
+				AA0000000000000000000011 /* AgentServiceRequestCardView.swift in Sources */,
+				AA0000000000000000000013 /* ASAContractCardView.swift in Sources */,
+				AA0000000000000000000015 /* FeedElementAgentCapabilityCell.swift in Sources */,
+				AA0000000000000000000017 /* FeedElementAgentServiceRequestCell.swift in Sources */,
+				AA0000000000000000000019 /* FeedElementASAContractCell.swift in Sources */,
 				B914CD712AA2647100CD0BD1 /* UnmuteUserButton.swift in Sources */,
 				B901C38F2BAB2C5E00C3AA69 /* OnboardingInterestsController.swift in Sources */,
 				B914CD792AA62F4D00CD0BD1 /* YoutubeVideoCell.swift in Sources */,
@@ -4569,6 +4638,9 @@
 				9E8834CE2A37BFB9005DB548 /* NSRangeTests.swift in Sources */,
 				B94B18A02D5E233600A932CE /* RegexTests.swift in Sources */,
 				9393310729A3E370003954C2 /* PrimalTests.swift in Sources */,
+				C1DEF58CD3774981894C94E8 /* NostrTagHelpersTests.swift in Sources */,
+				EE2CFC41F6964BBCB7F73989 /* AgentModelsTests.swift in Sources */,
+				512A95273924477F933B5043 /* ASAManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4772,12 +4844,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Primal/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Primal;
+				INFOPLIST_KEY_CFBundleDisplayName = NostrWolfe;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Primal will only use the camera to import profile or content images into the app, as expressly selected by you.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "NostrWolfe will only use the camera to import profile or content images into the app, as expressly selected by you.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Used to safeguard private keys.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Primal will only use the image gallery to import profile or content images into the app, as expressly selected by you, or to save images and video content when requested by you.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "NostrWolfe will only use the image gallery to import profile or content images into the app, as expressly selected by you, or to save images and video content when requested by you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
@@ -4790,7 +4862,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.6.40;
-				PRODUCT_BUNDLE_IDENTIFIER = net.primal.iosapp.Primal;
+				PRODUCT_BUNDLE_IDENTIFIER = net.nostrwolfe.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -4821,12 +4893,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Primal/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Primal;
+				INFOPLIST_KEY_CFBundleDisplayName = NostrWolfe;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Primal will only use the camera to import profile or content images into the app, as expressly selected by you.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "NostrWolfe will only use the camera to import profile or content images into the app, as expressly selected by you.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Used to safeguard private keys.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Primal will only use the image gallery to import profile or content images into the app, as expressly selected by you, or to save images and video content when requested by you.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "NostrWolfe will only use the image gallery to import profile or content images into the app, as expressly selected by you, or to save images and video content when requested by you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
@@ -4839,7 +4911,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.6.40;
-				PRODUCT_BUNDLE_IDENTIFIER = net.primal.iosapp.Primal;
+				PRODUCT_BUNDLE_IDENTIFIER = net.nostrwolfe.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -4864,7 +4936,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.primal.iosapp.PrimalTests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.nostrwolfe.iosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -4884,7 +4956,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.primal.iosapp.PrimalTests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.nostrwolfe.iosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -4902,7 +4974,7 @@
 				DEVELOPMENT_TEAM = 7B23MN6TDM;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.primal.iosapp.PrimalUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.nostrwolfe.iosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -4920,7 +4992,7 @@
 				DEVELOPMENT_TEAM = 7B23MN6TDM;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.primal.iosapp.PrimalUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.nostrwolfe.iosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -4950,7 +5022,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.primal.iosapp.Primal.PrimalNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = net.nostrwolfe.ios.PrimalNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -4981,7 +5053,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.primal.iosapp.Primal.PrimalNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = net.nostrwolfe.ios.PrimalNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -5011,7 +5083,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.primal.iosapp.Primal.primalShare;
+				PRODUCT_BUNDLE_IDENTIFIER = net.nostrwolfe.ios.primalShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -5042,7 +5114,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.primal.iosapp.Primal.primalShare;
+				PRODUCT_BUNDLE_IDENTIFIER = net.nostrwolfe.ios.primalShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -5073,7 +5145,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.primal.iosapp.Primal.RemoteSignerWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = net.nostrwolfe.ios.RemoteSignerWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -5108,7 +5180,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.primal.iosapp.Primal.RemoteSignerWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = net.nostrwolfe.ios.RemoteSignerWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;

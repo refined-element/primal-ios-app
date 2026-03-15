@@ -114,7 +114,7 @@ private extension SettingsWalletViewController {
     func setup() {
         title = "Wallet Settings"
         
-        let primalWallet = SettingsSwitchView("Use Primal wallet")
+        let primalWallet = SettingsSwitchView("Use NostrWolfe wallet")
         
         let walletStart = SettingsSwitchView("Start in wallet")
         
@@ -123,7 +123,7 @@ private extension SettingsWalletViewController {
             self?.show(EditProfileViewController(profile: user), sender: nil)
         }
         
-        let maxBalanceDesc = descLabel("Primal is a transactional wallet, designed for handling small amounts. We recommend self custody for larger amounts.")
+        let maxBalanceDesc = descLabel("NostrWolfe is a transactional wallet, designed for handling small amounts. We recommend self custody for larger amounts.")
         
         minTransaction.addAction(.init(handler: { [weak self] _ in
             self?.show(SettingsEditMinTransactionController(), sender: nil)
@@ -135,7 +135,7 @@ private extension SettingsWalletViewController {
         
         let primalStack = UIStackView(axis: .vertical, [
             walletStart,                                                                                                        SpacerView(height: 10),
-            descLabel("Open the wallet when Primal starts"),                                                                    SpacerView(height: 24),
+            descLabel("Open the wallet when NostrWolfe starts"),                                                                    SpacerView(height: 24),
             showNotifications,                                                                                                  SpacerView(height: 10),
             descLabel("Get notified with push notifications when you receive a payment above a certain size"),                  SpacerView(height: 24),
             minTransaction,                                                                                                     SpacerView(height: 10),

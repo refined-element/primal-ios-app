@@ -81,7 +81,7 @@ class AdvancedSearchManager: ObservableObject {
         return PrimalFeed(
             name: title,
             spec: "{\"id\":\"advsearch\",\"query\":\"\(query)\"}",
-            description: "Primal search results",
+            description: "NostrWolfe search results",
             feedkind: "search",
             enabled: true
         )

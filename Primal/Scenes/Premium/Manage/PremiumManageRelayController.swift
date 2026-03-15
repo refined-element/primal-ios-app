@@ -29,7 +29,7 @@ class PremiumManageRelayController: UIViewController {
         relayView.addSubview(relayStack)
         relayStack.pinToSuperview(edges: .vertical).centerToSuperview(axis: .horizontal)
         
-        let longText = "The Primal Premium relay is a high-performance Nostr relay that only accepts content from Primal Premium users. Posting to this relay improves your visibility on the Nostr network because it guarantees high signal and lack of spam to any Nostr user that reads from it."
+        let longText = "The NostrWolfe Premium relay is a high-performance Nostr relay that only accepts content from NostrWolfe Premium users. Posting to this relay improves your visibility on the Nostr network because it guarantees high signal and lack of spam to any Nostr user that reads from it."
         let longLabel = UILabel(longText, color: .foreground3, font: .appFont(withSize: 15, weight: .regular), multiline: true)
         
         let actionButton = LargeRoundedButton(title: "Connect to Premium Relay")

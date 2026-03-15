@@ -35,11 +35,11 @@ class OnboardingPreviewCodeController: OnboardingBaseViewController, PromotionCo
         let (actionText, description) = {
             guard IdentityManager.instance.userHexPubkey.isEmpty else {
                 if WalletManager.instance.userHasWallet != true {
-                    return ("Activate Wallet", "To redeem your code, activate your Primal Wallet")
+                    return ("Activate Wallet", "To redeem your code, activate your NostrWolfe Wallet")
                 }
                 return ("Redeem Code", "")
             }
-            return ("Onboard to Primal", "To redeem your code, onboard to Primal by creating your Nostr account and activating your Primal Wallet.")
+            return ("Onboard to NostrWolfe", "To redeem your code, onboard to NostrWolfe by creating your Nostr account and activating your NostrWolfe Wallet.")
         }()
         
         let preview = OnboardingPreviewCodeView(info: info)
@@ -121,7 +121,7 @@ class CodePreviewPremiumView: UIStackView {
         
         let firstStack = UIStackView([
             UIImageView(image: .checkmark40).constrainToSize(width: 25, height: 24),
-            UILabel("Primal Premium", color: .gray11, font: .appFont(withSize: 24, weight: .semibold))
+            UILabel("NostrWolfe Premium", color: .gray11, font: .appFont(withSize: 24, weight: .semibold))
         ])
         firstStack.alignment = .center
         firstStack.spacing = 8

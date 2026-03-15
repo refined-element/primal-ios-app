@@ -49,7 +49,7 @@ class LegendListController: PrimalPageController {
         tabSelectionView.stack.spacing = 22
         tabSelectionView.distribution = .fill
         
-        title = "Primal Legends"
+        title = "NostrWolfe Legends"
         
         aboutButton.addAction(.init(handler: { [weak self] _ in
             self?.show(PremiumBecomeLegendController(), sender: nil)

@@ -86,9 +86,9 @@ private extension PremiumBuySubscriptionController {
         let learnMoreButton = UIButton()
         switch kind {
         case .premium:
-            learnMoreButton.configuration = .accent("Learn about Primal Premium", font: .appFont(withSize: 16, weight: .regular))
+            learnMoreButton.configuration = .accent("Learn about NostrWolfe Premium", font: .appFont(withSize: 16, weight: .regular))
         case .pro:
-            learnMoreButton.configuration = .coloredButton("Learn about Primal Pro", color: .pro)
+            learnMoreButton.configuration = .coloredButton("Learn about NostrWolfe Pro", color: .pro)
         }
         
         let mainStack = UIStackView(axis: .vertical, [
@@ -205,20 +205,20 @@ private extension PremiumBuySubscriptionController {
                 case .unverified(_, let error):
                     self?.loader.isHidden = true
                     RootViewController.instance.view.isUserInteractionEnabled = true
-                    RootViewController.instance.showErrorMessage(title: "The Primal Premium subscription purchase failed. Please try again.", error.localizedDescription)
+                    RootViewController.instance.showErrorMessage(title: "The NostrWolfe Premium subscription purchase failed. Please try again.", error.localizedDescription)
                     print("Purchase error: \(error)")
                 }
             case nil:
                 self?.loader.isHidden = true
                 RootViewController.instance.view.isUserInteractionEnabled = true
-                RootViewController.instance.showErrorMessage(title: "The Primal Premium subscription purchase failed. Please try again.", "Check your apple pay settings")
+                RootViewController.instance.showErrorMessage(title: "The NostrWolfe Premium subscription purchase failed. Please try again.", "Check your apple pay settings")
             case .userCancelled:
                 self?.loader.isHidden = true
                 RootViewController.instance.view.isUserInteractionEnabled = true
             case .pending:
                 self?.loader.isHidden = true
                 RootViewController.instance.view.isUserInteractionEnabled = true
-                RootViewController.instance.showErrorMessage(title: "Your Primal Premium subscription purchase is pending. Once it completes, the Premium features will be enabled.")
+                RootViewController.instance.showErrorMessage(title: "Your NostrWolfe Premium subscription purchase is pending. Once it completes, the Premium features will be enabled.")
             }
         }
     }
@@ -245,7 +245,7 @@ private extension PremiumBuySubscriptionController {
             userStack.addArrangedSubview(SpacerView(height: 8, priority: .defaultLow))
             userStack.addArrangedSubview(SpacerView(height: 8, priority: .required))
             userStack.addArrangedSubview(UILabel(
-                state == .upgradeToPro ? "Your Legend status is one click away" : "Your Primal Name is available!",
+                state == .upgradeToPro ? "Your Legend status is one click away" : "Your NostrWolfe Name is available!",
                 color: .init(rgb: 0x52CE0A),
                 font: .appFont(withSize: 16, weight: .semibold)
             ))

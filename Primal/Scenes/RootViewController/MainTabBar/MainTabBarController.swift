@@ -456,7 +456,7 @@ private extension MainTabBarController {
                             return (SearchNoteFeedController(feed: FeedManager(newFeed: PrimalFeed(
                                 name: "Search",
                                 spec: "{\"id\":\"advsearch\",\"query\":\"\(text)\"}",
-                                description: "Primal search results",
+                                description: "NostrWolfe search results",
                                 feedkind: "search",
                                 enabled: true
                             ))), .home)

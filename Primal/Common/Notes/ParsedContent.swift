@@ -91,6 +91,10 @@ final class ParsedContent: Hashable {
     
     var invoice: Invoice?
     var l402Gate: L402Gate?
+    var agentCapability: AgentCapability?
+    var agentServiceRequest: AgentServiceRequest?
+    var agentServiceAgreement: AgentServiceAgreement?
+    var agentAttestation: AgentAttestation?
 
     var text: String = ""
     var attributedText: NSAttributedString = NSAttributedString(string: "")
@@ -395,6 +399,10 @@ extension ParsedContent {
         
         new.invoice = invoice
         new.l402Gate = l402Gate
+        new.agentCapability = agentCapability
+        new.agentServiceRequest = agentServiceRequest
+        new.agentServiceAgreement = agentServiceAgreement
+        new.agentAttestation = agentAttestation
 
         new.text = text
         new.attributedText = attributedText

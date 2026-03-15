@@ -58,7 +58,7 @@ final class OnboardingScanCodeController: OnboardingBaseViewController, QRCaptur
         
         let descStack = UIStackView(axis: .vertical, [
             UILabel("Scan Anything:", color: .white, font: .appFont(withSize: 16, weight: .bold), multiline: true),
-            UILabel("Invite code, payment invoice, login string,\nuser link, content link, primal gift card", color: .white.withAlphaComponent(0.75), font: .appFont(withSize: 14, weight: .regular), multiline: true)
+            UILabel("Invite code, payment invoice, login string,\nuser link, content link, NostrWolfe gift card", color: .white.withAlphaComponent(0.75), font: .appFont(withSize: 14, weight: .regular), multiline: true)
         ])
         descStack.spacing = 4
         view.addSubview(descStack)

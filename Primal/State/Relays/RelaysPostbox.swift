@@ -35,6 +35,55 @@ final class RelaysPostbox {
         pool.connect(relays: loadedRalays)
     }
     
+    /// The dedicated agent relay pool — connects only to agent_relays.
+    let agentPool = RelayPool()
+
+    /// Connect agent relay pool to the agent-specific relays.
+    func connectAgentRelays() {
+        agentPool.connect(relays: agent_relays)
+    }
+
+    /// Subscribe to agent events via REQ on the agent relay pool only.
+    func subscribeAgentREQ(subscriptionId: String, filters: [JSON], handler: @escaping (_ event: JSON, _ relay: String) -> Void) {
+        // Ensure agent relays are connected
+        if agentPool.connections.isEmpty {
+            connectAgentRelays()
+        }
+        agentPool.requestREQ(subscriptionId: subscriptionId, filters: filters, handler: handler)
+    }
+
+    /// Close an agent REQ subscription.
+    func closeAgentREQ(subscriptionId: String) {
+        agentPool.closeREQ(subscriptionId: subscriptionId)
+    }
+
+    /// Publish an agent event ONLY to agent-specific relays.
+    /// Does NOT broadcast to all user relays.
+    func requestAgentEvent(_ ev: NostrObject, successHandler: ((_ result: [JSON]) -> Void)? = nil, errorHandler: (() -> Void)? = nil) {
+        // Ensure agent relays are connected
+        if agentPool.connections.isEmpty {
+            connectAgentRelays()
+        }
+
+        var didSucceed: Bool?
+
+        agentPool.request(ev) { result, relay in
+            DispatchQueue.main.async {
+                if didSucceed != true {
+                    didSucceed = true
+                    successHandler?(result)
+                }
+            }
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            if didSucceed == nil {
+                didSucceed = false
+                errorHandler?()
+            }
+        }
+    }
+
     func request(_ ev: NostrObject, errorDelay: Double = 10, successHandler: ((_ result: [JSON]) -> Void)? = nil, errorHandler: (() -> Void)? = nil) {
         var didSucceed: Bool?
         

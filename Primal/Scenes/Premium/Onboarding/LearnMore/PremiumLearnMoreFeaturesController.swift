@@ -11,15 +11,15 @@ import GenericJSON
 
 class PremiumLearnMoreFeaturesController: UITableViewController {
     var data: [(String, PremiumLearnMoreDataCell.PossibleState, PremiumLearnMoreDataCell.PossibleState)] = [
-        ("Verified Nostr Address", .check, .check),
-        ("Custom Lightning Address", .check, .check),
-        ("VIP Profile on primal.net", .check, .check),
-        ("Advanced Nostr search", .check, .check),
-        ("Premium paid relay", .check, .check),
-        ("Media storage capacity", .text("10 GB"), .text("100 GB")),
-        ("Media maximum file size", .text("1 GB"), .text("10 GB")),
-        ("Primal Studio", .empty, .check),
-        ("Legend Status on Primal", .empty, .check),
+        ("Publish agent capabilities", .check, .check),
+        ("Create L402 challenges", .check, .check),
+        ("Agent API access", .check, .check),
+        ("Verified Nostr address", .check, .check),
+        ("Custom Lightning address", .check, .check),
+        ("Agent analytics", .text("Basic"), .text("Advanced")),
+        ("Multi-agent management", .empty, .check),
+        ("Priority support", .empty, .check),
+        ("Custom integrations", .empty, .check),
     ]
     
     var didReachEnd = false

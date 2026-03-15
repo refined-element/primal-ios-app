@@ -68,9 +68,9 @@ final class PremiumViewController: UIPageViewController, Themeable {
                 
                 if let state {
                     if state.isExpired {
-                        title = "Premium Expired"
+                        title = "Plan Expired"
                     } else {
-                        title = "Premium"
+                        title = "Agentic Commerce"
                     }
                     
                     setViewControllers([PremiumHomeViewController(state: state)], direction: .forward, animated: false)

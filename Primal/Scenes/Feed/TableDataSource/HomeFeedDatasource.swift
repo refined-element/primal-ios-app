@@ -85,7 +85,7 @@ class HomeFeedDatasource: UITableViewDiffableDataSource<SingleSection, HomeFeedI
     
     func setPosts(_ posts: [ParsedContent]) {
         self.posts = posts
-        
+
         setCells()
     }
     

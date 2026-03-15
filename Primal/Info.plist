@@ -10,10 +10,11 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>net.primal.iosapp.Primal</string>
+			<string>net.nostrwolfe.ios</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>primal</string>
+				<string>nostrwolfe</string>
 			</array>
 		</dict>
 		<dict>

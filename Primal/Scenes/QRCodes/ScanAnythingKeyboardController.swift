@@ -39,7 +39,7 @@ class ScanAnythingKeyboardController: UIViewController, WalletSearchController, 
     let input = UITextField()
     let pasteButton = PasteButton()
     
-    let descLabel = UILabel("Invite code, payment invoice, login string,\nuser link, content link, primal gift card code", color: .foreground, font: .appFont(withSize: 14, weight: .regular), multiline: true)
+    let descLabel = UILabel("Invite code, payment invoice, login string,\nuser link, content link, NostrWolfe gift card code", color: .foreground, font: .appFont(withSize: 14, weight: .regular), multiline: true)
     let placeholderLabel = UILabel("Enter code...", color: .foreground4, font: .appFont(withSize: 18, weight: .semibold))
     
     var cancellables: Set<AnyCancellable> = []

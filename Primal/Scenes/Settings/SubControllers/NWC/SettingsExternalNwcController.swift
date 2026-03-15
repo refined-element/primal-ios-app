@@ -47,7 +47,7 @@ class SettingsExternalNwcController: UIViewController {
 
 private extension SettingsExternalNwcController {
     func setup() {
-        title = "Link Primal Wallet"
+        title = "Link NostrWolfe Wallet"
         navigationItem.leftBarButtonItem = customBackButton
         view.backgroundColor = .background
         
@@ -82,9 +82,9 @@ private extension SettingsExternalNwcController {
         let budget = SettingsInfoView(name: "Daily Budget", desc: "10,000 sats", showArrow: true)
         
         let midStack = UIStackView(axis: .vertical, [
-            UILabel("An external app “\(params.appName)” is requesting access to your Primal Wallet. If you wish to allow this, click “Give Wallet Access” below.", color: .foreground, font: .appFont(withSize: 16, weight: .regular), multiline: true), SpacerView(height: 24),
+            UILabel("An external app “\(params.appName)” is requesting access to your NostrWolfe Wallet. If you wish to allow this, click “Give Wallet Access” below.", color: .foreground, font: .appFont(withSize: 16, weight: .regular), multiline: true), SpacerView(height: 24),
             budget, SpacerView(height: 20),
-            UILabel("You can revoke access at any time in your Primal Wallet settings.", color: .foreground4, font: .appFont(withSize: 16, weight: .regular), multiline: true)
+            UILabel("You can revoke access at any time in your NostrWolfe Wallet settings.", color: .foreground4, font: .appFont(withSize: 16, weight: .regular), multiline: true)
         ])
         
         let actionButton = LargeRoundedButton(title: "Give Wallet Access")

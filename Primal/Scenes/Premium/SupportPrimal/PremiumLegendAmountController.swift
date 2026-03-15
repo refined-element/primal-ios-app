@@ -56,7 +56,7 @@ class PremiumLegendAmountController: UIViewController {
         
         balanceView.largeAmountLabel.centerToView(view, axis: .horizontal)
         
-        title = "Become a Primal Legend"
+        title = "Become a NostrWolfe Legend"
         view.backgroundColor = .background
         navigationItem.leftBarButtonItem = customBackButton
         

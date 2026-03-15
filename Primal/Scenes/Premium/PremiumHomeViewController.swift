@@ -66,7 +66,7 @@ private extension PremiumHomeViewController {
             }
         }))
         
-        let action = LegendaryRoundedButton(title: state.isExpired ? "Renew Subscription" : "Manage Premium")
+        let action = LegendaryRoundedButton(title: state.isExpired ? "Renew Subscription" : "Manage Plan")
         action.addAction(.init(handler: { [unowned self] _ in
             if state.isExpired == true {
                 show(PremiumBuySubscriptionController(pickedName: state.name, kind: .premium, state: .buySubscription), sender: nil)
@@ -126,7 +126,7 @@ private extension PremiumHomeViewController {
         if state.isExpired {
             titleView.alpha = 0.4
         } else if state.cohort_2.lowercased() == "free" {
-            let label = UILabel("Hey there! You are an early Primal user who interacted with our team, so we gave you 6 months of Primal Premium for free. ♥️🫂", color: .foreground3, font: .appFont(withSize: 14, weight: .regular))
+            let label = UILabel("Hey there! You are an early NostrWolfe user who interacted with our team, so we gave you 6 months of Agentic Commerce for free.", color: .foreground3, font: .appFont(withSize: 14, weight: .regular))
             label.textAlignment = .center
             label.numberOfLines = 0
             let labelParent = UIView()
@@ -157,9 +157,9 @@ private extension PremiumHomeViewController {
         let strings: (String, String?) = {
             if state.isLegend { return ("", nil) }
             if state.isExpired {
-                return ("Your Primal Premium subscription has expired.\nYou can renew it below:", nil)
+                return ("Your Agentic Commerce plan has expired.\nYou can renew it below:", nil)
             }
-            return ("Want to get more out of Primal?\nCheck out ", "Primal Pro")
+            return ("Want to unlock agent fleet management?\nCheck out the ", "Business Plan")
         }()
         
         let mutable = NSMutableAttributedString(string: strings.0, attributes: [

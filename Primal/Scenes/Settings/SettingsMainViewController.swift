@@ -82,7 +82,6 @@ private extension SettingsMainViewController {
         let mediaUploads = SettingsOptionButton(title: "Media Uploads")
         let notifications = SettingsOptionButton(title: "Notifications")
         let devMode = SettingsOptionButton(title: "Dev Mode")
-        devMode.isHidden = true
         let zaps = SettingsOptionButton(title: "Zaps")
         
         let versionTitleLabel = SettingsTitleView(title: "VERSION")

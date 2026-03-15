@@ -19,3 +19,7 @@ let bootstrap_relays = [
     "wss://relay.nostr.bg",
     "wss://nostr.bitcoiner.social",
 ]
+
+let agent_relays = [
+    "wss://agents.lightningenable.com"
+]

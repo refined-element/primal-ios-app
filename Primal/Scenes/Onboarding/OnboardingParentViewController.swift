@@ -172,35 +172,24 @@ extension OnboardingViewController {
     }
     
     func addBackground(clipToLeft: Bool = true) {
-        let background = UIImageView(image: UIImage(named: "onboardingBackground"))
-        let backgroundParent = UIView()
-        backgroundParent.addSubview(background)
-        view.addSubview(backgroundParent)
-        backgroundParent.pinToSuperview(edges: [.leading, .vertical])
-        background.pinToSuperview(edges: [.vertical, .trailing])
-        background.contentMode = .scaleAspectFill
-        background.widthAnchor.constraint(equalTo: background.heightAnchor, multiplier: 1875 / 812).isActive = true
-    
-        backgroundParent.trailingAnchor.constraint(greaterThanOrEqualTo: view.trailingAnchor).isActive = true
-        backgroundParent.isUserInteractionEnabled = false
-                
-        let constraint = NSLayoutConstraint(
-            item: background,
-            attribute: .leading,
-            relatedBy: .equal,
-            toItem: view,
-            attribute: .trailing,
-            multiplier: -1 * (backgroundIndex - 0.0001),
-            constant: 0
-        )
-        constraint.priority = .defaultHigh
-        constraint.isActive = true
-        
-        backgroundParent.clipsToBounds = true
-        if !clipToLeft {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-                backgroundParent.clipsToBounds = false
-            }
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+            UIColor(red: 0.04, green: 0.04, blue: 0.06, alpha: 1.0).cgColor,  // #0a0a0f
+            UIColor(red: 0.10, green: 0.10, blue: 0.18, alpha: 1.0).cgColor   // #1a1a2e
+        ]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        gradientLayer.frame = view.bounds
+
+        let backgroundView = UIView()
+        backgroundView.layer.insertSublayer(gradientLayer, at: 0)
+        view.addSubview(backgroundView)
+        backgroundView.pinToSuperview()
+        backgroundView.isUserInteractionEnabled = false
+
+        // Update gradient frame when layout changes
+        DispatchQueue.main.async {
+            gradientLayer.frame = backgroundView.bounds
         }
     }
 }

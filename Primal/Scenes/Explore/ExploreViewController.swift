@@ -24,7 +24,8 @@ final class ExploreViewController: PrimalPageController {
             ("FEEDS", { ExploreFeedsViewController() }),
             ("ZAPS", { ExploreZapsViewController() }),
             ("MEDIA", { ExploreMediaController() }),
-            ("TOPICS", { ExploreTopicsViewController() })
+            ("TOPICS", { ExploreTopicsViewController() }),
+            ("AGENTS", { AgentFeedViewController() })
         ])
     }
     

@@ -143,7 +143,7 @@ class CreatedByPrimalView: UIView, Themeable {
             .font: UIFont.appFont(withSize: 15, weight: .regular),
             .foregroundColor: UIColor.foreground3
         ])
-        text.append(.init(string: "Primal", attributes: [
+        text.append(.init(string: "NostrWolfe", attributes: [
             .font: UIFont.appFont(withSize: 15, weight: .bold),
             .foregroundColor: UIColor.foreground
         ]))

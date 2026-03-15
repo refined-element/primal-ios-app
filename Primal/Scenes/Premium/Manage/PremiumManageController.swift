@@ -23,9 +23,9 @@ class PremiumManageController: UIViewController {    let state: PremiumState
             .init(title: "Manage Subscription", handler: { [weak self] _ in
                 self?.show(PremiumManageSubscriptionController(), sender: nil)
             }),
-            .init(title: "Change your Primal name", handler: { [weak self] _ in
+            .init(title: "Change your NostrWolfe name", handler: { [weak self] _ in
                 guard let nav = self?.navigationController else { return }
-                nav.pushViewController(PremiumSearchNameController(title: "Find Primal Name", callback: { name in
+                nav.pushViewController(PremiumSearchNameController(title: "Find NostrWolfe Name", callback: { name in
                     nav.pushViewController(PremiumManageNameController(pickedName: name), animated: true)
                 }), animated: true)
             }),
@@ -81,7 +81,7 @@ class PremiumManageController: UIViewController {    let state: PremiumState
                     self?.show(PremiumManageContentController(), sender: nil)
                 }),
             ]), SpacerView(height: 20),
-            UILabel("Primal Account", color: .foreground, font: .appFont(withSize: 18, weight: .bold)), SpacerView(height: 16),
+            UILabel("NostrWolfe Account", color: .foreground, font: .appFont(withSize: 18, weight: .bold)), SpacerView(height: 16),
             PremiumManageTableView(options: bottomOptions), SpacerView(height: 20),
             faqStackParent
         ])

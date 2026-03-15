@@ -12,7 +12,7 @@ final class SettingsWalletNWCController: UIViewController {
     let titleLabel = UILabel("CONNECTED APPS", color: .foreground, font: .appFont(withSize: 18, weight: .semibold))
     let header = SettingsConnectedAppsTableHeaderView()
     let contentStack = UIStackView(axis: .vertical, [])
-    let descLabel = UILabel("You can connect your Primal Wallet to other Nostr apps via Nostr Wallet Connect to enable zapping and payments.", color: .foreground4, font: .appFont(withSize: 14, weight: .regular))
+    let descLabel = UILabel("You can connect your NostrWolfe Wallet to other Nostr apps via Nostr Wallet Connect to enable zapping and payments.", color: .foreground4, font: .appFont(withSize: 14, weight: .regular))
     
     var cancellables: Set<AnyCancellable> = []
     
@@ -98,7 +98,7 @@ final class SettingsWalletNWCController: UIViewController {
         if nwcs.isEmpty {
             let parentView = UIView()
             parentView.backgroundColor = .background5
-            let label = UILabel("There are no apps connected to Primal Wallet", color: .foreground4, font: .appFont(withSize: 15, weight: .regular), multiline: true)
+            let label = UILabel("There are no apps connected to NostrWolfe Wallet", color: .foreground4, font: .appFont(withSize: 15, weight: .regular), multiline: true)
             parentView.addSubview(label)
             label.pinToSuperview(padding: 12)
             

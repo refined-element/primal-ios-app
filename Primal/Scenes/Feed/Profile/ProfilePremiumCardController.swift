@@ -48,9 +48,9 @@ extension LegendTheme {
         case .brown:
             return .init(rgb: 0xBB9971)
         case .blue:
-            return .init(rgb: 0x2394EF)
+            return .init(rgb: 0xF7931A)
         case .sunfire:
-            return .init(rgb: 0xCA077C)
+            return .init(rgb: 0xE07C11)
         }
     }
 }
@@ -241,7 +241,7 @@ private extension ProfilePremiumCardController {
                 formatter.dateFormat = "MMMM d, yyyy"
                 sinceLabel.text = "\(custom.cohort_1) since \(formatter.string(from: Date(timeIntervalSince1970: custom.premium_since)))"
                  
-                otherLegendsButton.configuration = .coloredButton("See other Primal OGs", color: .accent)
+                otherLegendsButton.configuration = .coloredButton("See other NostrWolfe OGs", color: .accent)
                 becomeLegendParent.alpha = 0.001
                 becomeLegendParent.isUserInteractionEnabled = false
             }

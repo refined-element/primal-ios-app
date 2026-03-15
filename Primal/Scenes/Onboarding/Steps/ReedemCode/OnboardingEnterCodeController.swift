@@ -62,7 +62,7 @@ class OnboardingEnterCodeController: OnboardingBaseViewController, PromotionCode
 private extension OnboardingEnterCodeController {
     func setup() {
         let title = UILabel()
-        title.text = "If you have an Invite Code, or a\nPrimal Gift Card, you can redeem it here."
+        title.text = "If you have an Invite Code, or a\nNostrWolfe Gift Card, you can redeem it here."
         title.font = .appFont(withSize: 16, weight: .regular)
         title.textColor = iconTextColor
         title.textAlignment = .center

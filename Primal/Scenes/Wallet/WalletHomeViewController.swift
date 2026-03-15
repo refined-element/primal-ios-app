@@ -361,7 +361,7 @@ private extension WalletHomeViewController {
             var firstSection = Section(cells: [])
             
             guard LoginManager.instance.method() == .nsec else {
-                tableData = [firstSection, Section(cells: [.error("Primal is in read only mode because you are signed in via your public key. To enable all options, please sign in with your private key, starting with 'nsec...")])]
+                tableData = [firstSection, Section(cells: [.error("NostrWolfe is in read only mode because you are signed in via your public key. To enable all options, please sign in with your private key, starting with 'nsec...")])]
                 return
             }
             

@@ -140,7 +140,7 @@ private extension OnboardingCloudSigninController {
         if nsec.hasPrefix("nsec") { return }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
-            RootViewController.instance.showErrorMessage(title: "Logged in with npub", "Primal is in read only mode because you are signed in via your public key. To enable all options, please sign in with your private key, starting with 'nsec...")
+            RootViewController.instance.showErrorMessage(title: "Logged in with npub", "NostrWolfe is in read only mode because you are signed in via your public key. To enable all options, please sign in with your private key, starting with 'nsec...")
         }
     }
 }

@@ -458,6 +458,21 @@ class NoteProcessor: MetadataCoding {
         p.highlights = highlights.flatMap { nsText.positions(of: $0.replacement, reference: $0.highlight.post.id)}
         p.highlightEvents = highlights.map { $0.highlight }
         p.l402Gate = L402ContentManager.parseGate(from: post.tags)
+
+        // Parse agent events based on post kind
+        switch post.kind {
+        case NostrKind.agentCapability.rawValue:
+            p.agentCapability = AgentCapability.parse(from: post.tags, content: post.content, id: post.id, pubkey: post.pubkey, createdAt: Int64(post.created_at))
+        case NostrKind.agentServiceRequest.rawValue:
+            p.agentServiceRequest = AgentServiceRequest.parse(from: post.tags, content: post.content, id: post.id, pubkey: post.pubkey, createdAt: Int64(post.created_at))
+        case NostrKind.agentServiceAgreement.rawValue:
+            p.agentServiceAgreement = AgentServiceAgreement.parse(from: post.tags, content: post.content, id: post.id, pubkey: post.pubkey, createdAt: Int64(post.created_at))
+        case NostrKind.agentAttestation.rawValue:
+            p.agentAttestation = AgentAttestation.parse(from: post.tags, content: post.content, id: post.id, pubkey: post.pubkey, createdAt: Int64(post.created_at))
+        default:
+            break
+        }
+
         p.text = text
         p.buildContentString(style: contentStyle)
         

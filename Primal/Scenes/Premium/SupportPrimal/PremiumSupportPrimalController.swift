@@ -22,7 +22,7 @@ class PremiumSupportPrimalController: UIViewController {
         super.viewDidLoad()
         
         let bigLabel = UILabel(
-            "Be a part of the Nostr revolution and help us continue building for this ecosystem.",
+            "Power the agentic commerce revolution on Nostr with Lightning Enable.",
             color: .foreground,
             font: .appFont(withSize: 15, weight: .regular)
         )
@@ -38,16 +38,16 @@ class PremiumSupportPrimalController: UIViewController {
         
         let verified = VerifiedView().constrainToSize(36)
         let buySubscription = SupportPrimalInfoView(
-            title: "Buy a Subscription",
-            desc: "Extend your existing subscription to gain peace of mind and help fund Primal.",
-            action: "Buy Primal Premium",
+            title: "Get a Plan",
+            desc: "Subscribe to an Agentic Commerce plan and unlock agent capabilities on Nostr.",
+            action: "Get Started",
             topView: UIImageView(image: UIImage(named: "checkmark40"))
         )
-        
+
         let becomeLegend = SupportPrimalInfoView(
-            title: "Become a Legend",
-            desc: "Donate $1000 or more to gain permanent membership and exclusive perks!",
-            action: "Become a Legend Now",
+            title: "Business Plan",
+            desc: "For businesses running agent fleets. Multi-agent management, analytics, and priority support.",
+            action: "Upgrade to Business",
             topView: UIImageView(image: UIImage(named: "becomeLegendLogo"))
         )
         
@@ -57,7 +57,7 @@ class PremiumSupportPrimalController: UIViewController {
         view.addSubview(stack)
         stack.pinToSuperview(edges: .horizontal, padding: 20).pinToSuperview(edges: .top, padding: 16, safeArea: true)
         
-        title = "Support Primal"
+        title = "Lightning Enable"
         view.backgroundColor = .background
         navigationItem.leftBarButtonItem = customBackButton
         
@@ -81,7 +81,7 @@ class PremiumSupportPrimalController: UIViewController {
                 show(PremiumBuySubscriptionController(pickedName: state.name, kind: .premium, state: .extendSubscription), sender: nil)
             } else {
                 guard let nav = navigationController else { return }
-                nav.pushViewController(PremiumSearchNameController(title: "Find Primal Name", callback: { name in
+                nav.pushViewController(PremiumSearchNameController(title: "Find NostrWolfe Name", callback: { name in
                     nav.pushViewController(PremiumBuySubscriptionController(pickedName: name, kind: .premium, state: .onboardingFinish), animated: true)
                 }), animated: true)
             }

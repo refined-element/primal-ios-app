@@ -266,7 +266,7 @@ private extension FeedsSelectionController {
     }
     
     func showRestoreFeedsDialog() {
-        let alert = UIAlertController(title: "This will replace your feed list with default  Primal feeds.", message: "Do you wish to continue?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "This will replace your feed list with default  NostrWolfe feeds.", message: "Do you wish to continue?", preferredStyle: .alert)
         alert.addAction(.init(title: "Cancel", style: .cancel))
         alert.addAction(.init(title: "Confirm", style: .default) { [weak self] _ in
             self?.restoreDefaults()

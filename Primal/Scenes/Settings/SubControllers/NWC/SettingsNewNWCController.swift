@@ -70,7 +70,7 @@ private extension SettingsNewNWCController {
             UILabel("Name of the app you wish to connect: ", color: .foreground, font: .appFont(withSize: 16, weight: .regular)), SpacerView(height: 8),
             input, SpacerView(height: 28),
             budget, SpacerView(height: 20),
-            UILabel("You can revoke access at any time in your Primal Wallet settings.", color: .foreground4, font: .appFont(withSize: 16, weight: .regular), multiline: true)
+            UILabel("You can revoke access at any time in your NostrWolfe Wallet settings.", color: .foreground4, font: .appFont(withSize: 16, weight: .regular), multiline: true)
         ])
         
         let actionButton = LargeRoundedButton(title: "Create Wallet Connection")

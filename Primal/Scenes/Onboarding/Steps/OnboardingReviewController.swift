@@ -33,7 +33,7 @@ final class OnboardingReviewController: OnboardingBaseViewController {
 private extension OnboardingReviewController {
     func setup() {
         addBackground()
-        addNavigationBar("Primal Wallet")
+        addNavigationBar("NostrWolfe Wallet")
         backButton.isHidden = true
         
         let botStack = UIStackView(axis: .vertical, [continueButton, skipButton])
@@ -86,7 +86,7 @@ private extension OnboardingReviewController {
     var instructionText: String { """
     Zaps are small payments that Nostr users send to each other. You can zap a note instead of hitting the like button.
 
-    Activate your Primal Wallet to participate in the Nostr zapping economy and earn money for the awesome content you publish!
+    Activate your NostrWolfe Wallet to participate in the Nostr zapping economy and earn money for the awesome content you publish!
 """
     }
 }

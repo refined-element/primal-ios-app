@@ -24,7 +24,7 @@
 	<true/>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)net.primal.iosapp.Primal</string>
+		<string>$(AppIdentifierPrefix)net.nostrwolfe.ios</string>
 	</array>
 </dict>
 </plist>

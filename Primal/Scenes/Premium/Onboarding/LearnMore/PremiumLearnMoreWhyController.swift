@@ -11,20 +11,20 @@ class PremiumLearnMoreWhyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Primal Premium"
+        title = "Individual Plan"
         view.backgroundColor = .background
-        
+
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = 6
         paragraph.alignment = .justified
-        
+
         let descLabel = UILabel()
         descLabel.attributedText = .init(string: """
-        Become a Nostr power user and help shape the future! Open protocols like Nostr give us the opportunity to regain control over our online lives.
-        
-        At Primal, we don’t rely on advertising. We don’t monetize user data. Our users are our customers. Our sole focus is to make the best possible product for our users. We open source all our work to help the Nostr ecosystem flourish. By signing up for Primal Premium, you are enabling us to continue building for Nostr.
-        
-        Be the change you want to see in the world. If you don’t want to be the product, consider being the customer.
+        The Individual plan is for solo developers and agent operators. For $99/mo, you get everything you need to publish agent capabilities, create L402 challenges, and access the full agent API on Nostr.
+
+        Lightning Enable powers agentic commerce over Nostr, letting your agents settle payments via Lightning and discover each other through Agent Service Agreements.
+
+        Subscribe at lightningenable.com to get started.
         """, attributes: [
             .font: UIFont.appFont(withSize: 16, weight: .regular),
             .foregroundColor: UIColor.foreground3,
@@ -49,16 +49,16 @@ class PremiumLearnMoreProController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Primal Pro"
+        title = "Business Plan"
         view.backgroundColor = .background
-        
+
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = 6
         paragraph.alignment = .justified
-        
+
         let descLabel = UILabel()
         descLabel.attributedText = .init(string: """
-        Primal Pro is the highest user tier at Primal, designed for content creators and teams. Pro users get access to Primal Studio and gain Legend status on Primal: 
+        The Business plan is for teams running agent fleets. For $299/mo, you get everything in Individual plus multi-agent management, analytics, and priority support:
         """, attributes: [
             .font: UIFont.appFont(withSize: 16, weight: .regular),
             .foregroundColor: UIColor.foreground3,
@@ -68,19 +68,19 @@ class PremiumLearnMoreProController: UIViewController {
         
         let firstDescLabel = UILabel()
         firstDescLabel.attributedText = .init(string: """
-        A professional publishing suite for Nostr. Includes authoring tools, media management, smart scheduling, content imports, team collaboration, and content analytics. Available at:
+        Manage multiple agents from a single dashboard. Monitor performance, configure capabilities, and coordinate your fleet. Available at:
         """, attributes: [
             .font: UIFont.appFont(withSize: 15, weight: .regular),
             .foregroundColor: UIColor.foreground3,
             .paragraphStyle: paragraph
         ])
         firstDescLabel.numberOfLines = 0
-        let studioButton = UIButton(configuration: .coloredButton("studio.primal.net", color: .pro), primaryAction: .init(handler: { _ in
-            guard let url = URL(string: "https://studio.primal.net") else { return }
+        let studioButton = UIButton(configuration: .coloredButton("lightningenable.com", color: .pro), primaryAction: .init(handler: { _ in
+            guard let url = URL(string: "https://lightningenable.com") else { return }
             UIApplication.shared.open(url)
         }))
         let firstVStack = UIStackView(axis: .vertical, [
-            UILabel("Primal Studio", color: .foreground, font: .appFont(withSize: 16, weight: .semibold)),
+            UILabel("Fleet Management", color: .foreground, font: .appFont(withSize: 16, weight: .semibold)),
             firstDescLabel,
             studioButton
         ])
@@ -92,7 +92,7 @@ class PremiumLearnMoreProController: UIViewController {
         
         let secondDescLabel = UILabel()
         secondDescLabel.attributedText = .init(string: """
-        Customizable Legend avatar ring, Legend profile badge and banner, along with the highest level of features, visibility and recognition on Primal.
+        Dedicated support channel with faster response times, custom integration assistance, and early access to new features.
         """, attributes: [
             .font: UIFont.appFont(withSize: 15, weight: .regular),
             .foregroundColor: UIColor.foreground3,
@@ -100,7 +100,7 @@ class PremiumLearnMoreProController: UIViewController {
         ])
         secondDescLabel.numberOfLines = 0
         let secondVStack = UIStackView(axis: .vertical, [
-            UILabel("Legend Status", color: .foreground, font: .appFont(withSize: 16, weight: .semibold)),
+            UILabel("Priority Support", color: .foreground, font: .appFont(withSize: 16, weight: .semibold)),
             secondDescLabel,
         ])
         

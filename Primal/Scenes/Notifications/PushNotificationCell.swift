@@ -37,8 +37,8 @@ protocol PushNotificationCellDelegate: AnyObject {
 
 class PushNotificationCell: UITableViewCell, Themeable {
     
-    let titleLabel: UILabel = UILabel("Enable push notifications from Primal", color: .foreground, font: .appFont(withSize: 16, weight: .regular))
-    let descLabel: UILabel = UILabel("Get system notifications from Primal. You can also configure this in your system settings.", color: .foreground2, font: .appFont(withSize: 14, weight: .regular))
+    let titleLabel: UILabel = UILabel("Enable push notifications from NostrWolfe", color: .foreground, font: .appFont(withSize: 16, weight: .regular))
+    let descLabel: UILabel = UILabel("Get system notifications from NostrWolfe. You can also configure this in your system settings.", color: .foreground2, font: .appFont(withSize: 14, weight: .regular))
     
     let dismissButton = UIButton().constrainToSize(width: 100, height: 28)
     let enableButton = UIButton().constrainToSize(width: 100, height: 28)

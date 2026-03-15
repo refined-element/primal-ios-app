@@ -35,6 +35,7 @@ final class RelayConnection {
     
     private var subHandlers: [String: (_ result: [JSON], _ relay: String) -> Void] = [:]
     private var responseBuffer: [String: [JSON]] = [:]
+    private var reqHandlers: [String: (_ event: JSON, _ relay: String) -> Void] = [:]
     
     private let jsonDecoder: JSONDecoder = JSONDecoder()
     
@@ -96,6 +97,35 @@ final class RelayConnection {
         }
     }
     
+    /// Send a REQ subscription to the relay with raw filter JSON.
+    /// The handler is called for each EVENT received matching the subscription.
+    func requestREQ(subscriptionId: String, filters: [JSON], handler: @escaping (_ event: JSON, _ relay: String) -> Void) {
+        self.dispatchQueue.async {
+            var reqArray: [JSON] = [.string("REQ"), .string(subscriptionId)]
+            reqArray.append(contentsOf: filters)
+
+            guard let jsonData = try? JSONEncoder().encode(reqArray),
+                  let jsonStr = String(data: jsonData, encoding: .utf8)
+            else { return }
+
+            print("REQ:\n\(jsonStr)")
+            self.reqHandlers[subscriptionId] = handler
+            self.socket?.send(string: jsonStr)
+        }
+    }
+
+    /// Send a CLOSE for a REQ subscription.
+    func closeREQ(subscriptionId: String) {
+        self.dispatchQueue.async {
+            let closeArray: [JSON] = [.string("CLOSE"), .string(subscriptionId)]
+            guard let jsonData = try? JSONEncoder().encode(closeArray),
+                  let jsonStr = String(data: jsonData, encoding: .utf8)
+            else { return }
+            self.socket?.send(string: jsonStr)
+            self.reqHandlers[subscriptionId] = nil
+        }
+    }
+
     private func processMessage(_ json: JSON) {
         guard
             let subId = json.arrayValue?[1].stringValue,
@@ -113,11 +143,11 @@ final class RelayConnection {
                 print("error getting bool value from OK response")
                 return
             }
-            
+
             if responseBuffer.keys.contains(subId) {
                 responseBuffer[subId]?.append(json)
             }
-            
+
             if let handler = subHandlers[subId], let b = responseBuffer[subId], okBool == true {
                 DispatchQueue.main.async {
                     handler(b, self.socketURL.absoluteString)
@@ -125,6 +155,16 @@ final class RelayConnection {
             }
             responseBuffer[subId] = nil
             subHandlers[subId] = nil
+        } else if type == "EVENT" {
+            // Handle EVENT responses from REQ subscriptions
+            guard let eventJSON = json.arrayValue?[2],
+                  let handler = reqHandlers[subId] else { return }
+            DispatchQueue.main.async {
+                handler(eventJSON, self.socketURL.absoluteString)
+            }
+        } else if type == "EOSE" {
+            // End of stored events — subscription stays open for new events
+            print("[RelayConnection] EOSE for subscription \(subId) on \(self.socketURL)")
         }
     }
 }

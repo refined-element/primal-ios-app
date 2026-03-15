@@ -53,8 +53,8 @@ extension Keychain {
 }
 
 final class ICloudKeychainManager {
-    private let keychain: Keychain = Keychain(service: "net.primal.iosapp.Primal").synchronizable(false)
-    private let onlineKeychain: Keychain = Keychain(service: "net.primal.iosappOnline.Primal").synchronizable(true)
+    private let keychain: Keychain = Keychain(service: "net.nostrwolfe.ios").synchronizable(false)
+    private let onlineKeychain: Keychain = Keychain(service: "net.nostrwolfe.ios.online").synchronizable(true)
     private var cancellables = Set<AnyCancellable>()
     
     private init() {}

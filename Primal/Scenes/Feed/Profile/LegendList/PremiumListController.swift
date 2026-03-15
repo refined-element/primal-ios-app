@@ -22,7 +22,7 @@ struct PremiumListServerResponse: Codable {
 
 class PremiumListController: PrimalPageController {
     init() {
-        let buyButton = UIButton(configuration: .accent("Get Primal Premium", font: .appFont(withSize: 14, weight: .regular)))
+        let buyButton = UIButton(configuration: .accent("Get NostrWolfe Premium", font: .appFont(withSize: 14, weight: .regular)))
         let aboutParent = UIView()
         aboutParent.addSubview(buyButton)
         buyButton.centerToSuperview(axis: .vertical).pinToSuperview(edges: .trailing, padding: 0)
@@ -183,7 +183,7 @@ class PremiumListTableViewCell: UITableViewCell, Themeable {
         sinceLabel.text = "Since: \(dateFormatter.string(from: item.since))"
         
         satsInfoLabel.text = String(Calendar.current.component(.year, from: item.since))
-        satsLabel.text = "Primal OG"
+        satsLabel.text = "NostrWolfe OG"
      
         updateTheme()
     }

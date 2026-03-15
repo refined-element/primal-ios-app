@@ -27,6 +27,9 @@ enum PostCellEvent {
     
     case payInvoice
     case unlockL402
+    case requestAgentService
+    case viewASA
+    case settleASA
 
     case zapDetails
     case likeDetails

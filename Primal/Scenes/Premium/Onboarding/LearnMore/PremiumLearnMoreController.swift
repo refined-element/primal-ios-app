@@ -20,23 +20,23 @@ class PremiumLearnMoreController: PrimalPageController {
     
     init(startingTab: Tab = .premium) {
         super.init(tabs: [
-            ("PREMIUM", { PremiumLearnMoreWhyController() }),
-            ("PRO", { PremiumLearnMoreProController() }),
+            ("INDIVIDUAL", { PremiumLearnMoreWhyController() }),
+            ("BUSINESS", { PremiumLearnMoreProController() }),
             ("FEATURES", { PremiumLearnMoreFeaturesController() }),
             ("FAQ", { PremiumLearnMoreFAQController() })
         ], startingTab: startingTab.rawValue)
-        
+
         $currentTab.sink { [weak self] tab in
             guard let self, let tab = Tab(rawValue: tab) else { return }
             switch tab {
             case .premium:
-                title = "Primal Premium"
+                title = "Individual Plan"
             case .pro:
-                title = "Primal Pro"
+                title = "Business Plan"
             case .features:
-                title = "Premium & Pro Features"
+                title = "Plan Features"
             case .faq:
-                title = "Premium & Pro FAQ"
+                title = "Agentic Commerce FAQ"
             }
         }
         .store(in: &cancellables)

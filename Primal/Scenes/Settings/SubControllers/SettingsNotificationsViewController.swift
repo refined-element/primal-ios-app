@@ -172,7 +172,7 @@ final class SettingsNotificationsViewController: UIViewController, Themeable {
     
     var didDenyNotifications = false {
         didSet {
-            pushInfoLabel.text = didDenyNotifications ? "You need to enable notifications in your system settings." : "Get system notifications from Primal. You can also configure this in your system settings."
+            pushInfoLabel.text = didDenyNotifications ? "You need to enable notifications in your system settings." : "Get system notifications from NostrWolfe. You can also configure this in your system settings."
             pushView.switchView.isOn = !didDenyNotifications && UserDefaults.standard.notificationEnableEvents.contains(where: { $0.pubkey == IdentityManager.instance.userHexPubkey })
         }
     }

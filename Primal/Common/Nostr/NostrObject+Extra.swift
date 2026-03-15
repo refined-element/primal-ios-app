@@ -209,7 +209,7 @@ extension NostrObject {
     static func highlight(_ content: String, article: Article) -> NostrObject? {
         createNostrObject(content: content, kind: NostrKind.highlight.rawValue, tags: [
             ["context", content],
-            ["alt", "This is a highlight created in https://primal.net iOS application"],
+            ["alt", "This is a highlight created in NostrWolfe iOS application"],
             ["a", article.asParsedContent.post.universalID],
             ["p", article.event.pubkey, "", "mention"]
         ])
@@ -391,10 +391,155 @@ extension NostrObject {
         let relay = IdentityManager.instance.userRelays?.first(where: { $0.value.write })?.key ?? ""
         return createNostrObject(content: comment, kind: NostrKind.liveComment.rawValue, tags: [
             ["a", live.creatorUniversalID, relay, "root"],
-            ["client", "Primal-iOS-App"]
+            ["client", "NostrWolfe-iOS-App"]
         ])
     }
     
+    // MARK: - L402 Agent Service Agreement Events
+
+    static func agentCapability(
+        serviceId: String,
+        categories: [String],
+        content: String,
+        pricing: [AgentPricing],
+        l402Endpoint: String?,
+        apiEndpoint: String?,
+        apiMethod: String?,
+        schemaURL: String?,
+        capacity: String?,
+        uptime: Double?,
+        hashtags: [String]
+    ) -> NostrObject? {
+        var tags: [[String]] = [["d", serviceId]]
+
+        for category in categories {
+            tags.append(["s", category])
+        }
+
+        for price in pricing {
+            tags.append(["price", "\(price.amount)", price.unit, price.model])
+        }
+
+        if let l402Endpoint {
+            tags.append(["l402", l402Endpoint])
+        }
+
+        if let apiEndpoint {
+            var endpointTag = ["endpoint", apiEndpoint]
+            if let apiMethod {
+                endpointTag.append(apiMethod)
+            }
+            tags.append(endpointTag)
+        }
+
+        if let schemaURL {
+            tags.append(["schema", schemaURL])
+        }
+
+        if let capacity {
+            tags.append(["capacity", capacity])
+        }
+
+        if let uptime {
+            tags.append(["uptime", "\(uptime)"])
+        }
+
+        for hashtag in hashtags {
+            tags.append(["t", hashtag])
+        }
+
+        return createNostrObject(content: content, kind: NostrKind.agentCapability.rawValue, tags: tags)
+    }
+
+    static func agentServiceRequest(
+        requestId: String,
+        categories: [String],
+        content: String,
+        budgetSats: Int?,
+        deadline: Int64?,
+        hashtags: [String]
+    ) -> NostrObject? {
+        var tags: [[String]] = [["d", requestId]]
+
+        for category in categories {
+            tags.append(["s", category])
+        }
+
+        if let budgetSats {
+            tags.append(["budget", "\(budgetSats)"])
+        }
+
+        if let deadline {
+            tags.append(["deadline", "\(deadline)"])
+        }
+
+        for hashtag in hashtags {
+            tags.append(["t", hashtag])
+        }
+
+        return createNostrObject(content: content, kind: NostrKind.agentServiceRequest.rawValue, tags: tags)
+    }
+
+    static func agentServiceAgreement(
+        agreementId: String,
+        providerPubkey: String,
+        requesterPubkey: String,
+        capabilityEventId: String?,
+        l402Endpoint: String?,
+        terms: [ASATerm],
+        status: ASAStatus,
+        expiry: Int64?,
+        content: String
+    ) -> NostrObject? {
+        var tags: [[String]] = [["d", agreementId]]
+
+        tags.append(["p", providerPubkey, "", "provider"])
+        tags.append(["p", requesterPubkey, "", "requester"])
+
+        if let capabilityEventId {
+            tags.append(["e", capabilityEventId, "", "capability"])
+        }
+
+        if let l402Endpoint {
+            tags.append(["l402", l402Endpoint])
+        }
+
+        for term in terms {
+            tags.append(["terms", term.type, term.value, term.unit])
+        }
+
+        tags.append(["status", status.rawValue])
+
+        if let expiry {
+            tags.append(["expiry", "\(expiry)"])
+        }
+
+        return createNostrObject(content: content, kind: NostrKind.agentServiceAgreement.rawValue, tags: tags)
+    }
+
+    static func agentAttestation(
+        attestationId: String,
+        subjectPubkey: String,
+        agreementId: String,
+        rating: Int,
+        content: String,
+        proof: String? = nil
+    ) -> NostrObject? {
+        var tags: [[String]] = [["d", attestationId]]
+
+        tags.append(["p", subjectPubkey, "", "subject"])
+        tags.append(["e", agreementId, "", "agreement"])
+        tags.append(["rating", "\(rating)"])
+        tags.append(["L", "nostr.agent.attestation"])
+        tags.append(["l", "completed", "nostr.agent.attestation"])
+
+        if let proof {
+            tags.append(["proof", proof])
+        }
+
+        return createNostrObject(content: content, kind: NostrKind.agentAttestation.rawValue, tags: tags)
+    }
+
     static func createNostrObjectAndSign(pubkey: String, privkey: String, content: String, kind: Int = 1, tags: [[String]] = [], createdAt: Int64 = Int64(Date().timeIntervalSince1970)) -> NostrObject? {
         guard
             let id = createNostrObjectId(pubkey: pubkey, tags: tags, content: content, created_at: createdAt, kind: kind),

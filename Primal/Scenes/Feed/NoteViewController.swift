@@ -445,6 +445,61 @@ class NoteViewController: UIViewController, UITableViewDelegate, Themeable, Wall
                 }
             }
             table.reloadData()
+        case .requestAgentService:
+            guard let capability = post.agentCapability else { return }
+            let budgetText = capability.pricing.first.map { "\($0.amount) \($0.unit) (\($0.model))" } ?? "Not specified"
+            let alert = UIAlertController(
+                title: "Request Service?",
+                message: "Service: \(capability.serviceId)\nBudget: \(budgetText)\n\nThis will publish a service request to the network.",
+                preferredStyle: .alert
+            )
+            alert.addAction(.init(title: "Cancel", style: .cancel))
+            alert.addAction(.init(title: "Request", style: .default, handler: { _ in
+                _ = ASAManager.instance.publishServiceRequest(
+                    requestId: "req-\(capability.serviceId)-\(Int(Date().timeIntervalSince1970))",
+                    categories: capability.categories,
+                    content: "Requesting service: \(capability.serviceId)",
+                    budgetSats: capability.pricing.first?.amount,
+                    hashtags: capability.hashtags
+                )
+            }))
+            present(alert, animated: true)
+        case .viewASA:
+            guard let agreement = post.agentServiceAgreement else { return }
+            let termsText = agreement.terms.map { "\($0.type): \($0.value) \($0.unit)" }.joined(separator: "\n")
+            let details = """
+            Agreement: \(agreement.agreementId)
+            Status: \(agreement.status.rawValue)
+            Provider: \(agreement.providerPubkey?.prefix(16) ?? "N/A")...
+            Requester: \(agreement.requesterPubkey?.prefix(16) ?? "N/A")...
+            L402 Endpoint: \(agreement.l402Endpoint ?? "None")
+
+            Terms:
+            \(termsText.isEmpty ? "None" : termsText)
+            """
+            let alert = UIAlertController(title: "Agreement Details", message: details, preferredStyle: .alert)
+            alert.addAction(.init(title: "OK", style: .default))
+            present(alert, animated: true)
+        case .settleASA:
+            guard let agreement = post.agentServiceAgreement else { return }
+            Task {
+                do {
+                    let (data, response) = try await ASAManager.instance.executeService(agreement: agreement)
+                    await MainActor.run {
+                        let alert = UIAlertController(
+                            title: "Settlement Complete",
+                            message: "Status: \(response.statusCode)\nReceived: \(data.count) bytes",
+                            preferredStyle: .alert
+                        )
+                        alert.addAction(.init(title: "OK", style: .default))
+                        self.present(alert, animated: true)
+                    }
+                } catch {
+                    await MainActor.run {
+                        showErrorMessage(title: "Settlement Failed", error.localizedDescription)
+                    }
+                }
+            }
         case .zapDetails:
             show(NoteReactionsParentController(.zaps, noteId: post.post.universalID), sender: nil)
         case .likeDetails:

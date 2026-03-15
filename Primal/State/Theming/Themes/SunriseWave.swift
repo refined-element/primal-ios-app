@@ -28,9 +28,9 @@ class SunriseWave: AppTheme {
     let foreground5: UIColor = .init(rgb: 0x808080)
     var foreground6: UIColor = .init(rgb: 0xC8C8C8)
     
-    let accent: UIColor = .init(rgb: 0xCA077C)
-    let accent2: UIColor = .init(rgb: 0xCA077C)
-    let accent3: UIColor = .init(rgb: 0xAB268E)
+    let accent: UIColor = .init(rgb: 0xE07C11)
+    let accent2: UIColor = .init(rgb: 0xC46A0E)
+    let accent3: UIColor = .init(rgb: 0xF7931A)
     
     let extraColorMenu: UIColor = .init(rgb: 0x222222)
     
@@ -39,7 +39,7 @@ class SunriseWave: AppTheme {
     var statusBarStyle: UIStatusBarStyle { .darkContent }
     var userInterfaceStyle: UIUserInterfaceStyle { .light }
     
-    var gradient: [UIColor] { [UIColor(rgb: 0xFF4F28), UIColor(rgb: 0x9600DC)] }
+    var gradient: [UIColor] { [UIColor(rgb: 0xFFB300), UIColor(rgb: 0xE07C11)] }
 
     var loadingSpinnerAnimation: AnimationType { .loadingSpinner }
     
